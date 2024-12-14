@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^/?Category/(.*?)/?$ /categorylisting.php?cid=$1 [L]
+RewriteRule ^/?Listing/L-(.*?)/?$ /singlelisting.php?lid=$1 [L]
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
+
