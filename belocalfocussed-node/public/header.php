@@ -1,6 +1,6 @@
 <?php
-session_start();
-error_reporting(0);
+//session_start();
+//error_reporting(0);
 require_once('includes/config.php');
 
 $bname = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
