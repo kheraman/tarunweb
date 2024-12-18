@@ -1,7 +1,7 @@
 <?php 
-session_start();
-error_reporting(0);
-date_default_timezone_set("Asia/calcutta");
+// session_start();
+// error_reporting(0);
+// date_default_timezone_set("Asia/calcutta");
 
 
 
@@ -33,15 +33,15 @@ $examcount['4'] ='10000000000000000000000000000';
 */
 
 // Create connection
-$con = new mysqli("localhost","ppvbuhtqam","zrTWSkSw3c");
+// $con = new mysqli("localhost","ppvbuhtqam","zrTWSkSw3c");
 
-// Check connection
-if ($con->connect_error) {
-  die("Connection failed: " . $con->connect_error);
-}
-else
-{	//echo "Connected successfully";
-}
+// // Check connection
+// if ($con->connect_error) {
+//   die("Connection failed: " . $con->connect_error);
+// }
+// else
+// {	//echo "Connected successfully";
+// }
 /*
 
 $con = mysqli_connect();
@@ -67,12 +67,12 @@ $my_global_variable = "https://belocalfocussed.com/";
 
 
 
-$select_db = mysqli_select_db( $con, 'ppvbuhtqam' );
-if ( !$select_db ) {
-    die( 'Database Selection Failed' . mysqli_error( $con ) );	
-}
-else
-{ //echo "DB Selected";
-}	
+// $select_db = mysqli_select_db( $con, 'ppvbuhtqam' );
+// if ( !$select_db ) {
+//     die( 'Database Selection Failed' . mysqli_error( $con ) );	
+// }
+// else
+// { //echo "DB Selected";
+// }	
 
 ?>
