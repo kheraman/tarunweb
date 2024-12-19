@@ -35,7 +35,7 @@ $examcount['4'] ='10000000000000000000000000000';
 // Create connection
 // $con = new mysqli("localhost","ppvbuhtqam","zrTWSkSw3c");
 
-$con = new mysqli("mysql-262f297f-khe-af93.k.aivencloud.com","avnadmin","AVNS_0ut9vkTOgcNWiXGft99");
+//$con = new mysqli("mysql-262f297f-khe-af93.k.aivencloud.com","avnadmin","AVNS_0ut9vkTOgcNWiXGft99");
 
 // // Check connection
  if ($con->connect_error) {
