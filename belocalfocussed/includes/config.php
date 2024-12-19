@@ -35,21 +35,22 @@ $examcount['4'] ='10000000000000000000000000000';
 // Create connection
 // $con = new mysqli("localhost","ppvbuhtqam","zrTWSkSw3c");
 
+$con = new mysqli("mysql-262f297f-khe-af93.k.aivencloud.com","avnadmin","AVNS_0ut9vkTOgcNWiXGft99");
+
 // // Check connection
-// if ($con->connect_error) {
-//   die("Connection failed: " . $con->connect_error);
-// }
-// else
-// {	//echo "Connected successfully";
-// }
-/*
+ if ($con->connect_error) {
+  die("Connection failed: " . $con->connect_error);
+ }
+ else
+ {	//echo "Connected successfully";
+}
 
 $con = mysqli_connect();
 if (!$con)
 {
   die('Could not connect: ' . mysqli_error());
 }
-echo "hello"; die("I amnn uujjjdead");*/
+//echo "hello"; die("I amnn uujjjdead");*/
 
 
 // Declare a global variable called $my_global_variable
