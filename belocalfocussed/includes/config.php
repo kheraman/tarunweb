@@ -39,6 +39,6 @@ if (!$con->real_connect($host, $user, $pass, $dbname, $port)) {
 //}
 
 // Close the connection
-$con->close();
+//$con->close();
 
 ?>
