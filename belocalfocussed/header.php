@@ -28,7 +28,7 @@ else
 	$page_type = "index";	
 }	
  	$sql = "select * from meta_tags where page_type = '".$page_type."'";		 //die;					
-	$result = mysqli_query($con,$sql);
+	$result = mysqli_query($sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	
 // 	//print_r($row); die("hhh");
