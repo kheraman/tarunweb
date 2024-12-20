@@ -1,7 +1,7 @@
 <?php
 
-session_start();
-error_reporting(1);
+//session_start();
+
 require_once('includes/config.php');
 
 function callAPI($method, $url, $data){
