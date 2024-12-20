@@ -27,6 +27,11 @@ if (!$con->real_connect($host, $user, $pass, $dbname, $port)) {
     die("Error connecting to database with SSL: " . $con->connect_error);
 }
 
+global $my_global_variable;
+
+// Set the value of the global variable
+$my_global_variable = "https://uscity.io/";
+
 // Perform a query
 //$result = $con->query("SELECT VERSION()");
 
