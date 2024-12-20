@@ -1,6 +1,6 @@
 <?php 
-session_start();
-error_reporting(1);
+//session_start();
+//error_reporting(1);
 require_once('includes/config.php')
 ?>
 <!DOCTYPE html>

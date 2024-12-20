@@ -1,69 +1,44 @@
-<?php 
-session_start();
-error_reporting(0);
-date_default_timezone_set("Asia/calcutta");
+<?php
+$uri = "mysql://avnadmin:AVNS_0ut9vkTOgcNWiXGft99@mysql-262f297f-khe-af93.k.aivencloud.com:18956/defaultdb?ssl-mode=REQUIRED";
 
+$fields = parse_url($uri);
 
+// Set up the database connection details
+$host = $fields["host"];
+$port = $fields["port"];
+$user = $fields["user"];
+$pass = $fields["pass"];
+$dbname = "synupdb";
+$sslcert = "ca.pem";  // Path to the SSL certificate
 
-/*
-define('HOST','localhost');
-define('USER','');
-define('PASSWORD','');
-define('DBNAME','yplisting');
-define('EXTRA','');
-define('SITENAME','');
-define('DOCUMENT_ROOT',$_SERVER['DOCUMENT_ROOT'].''.EXTRA);
-define('SERVER_NAME','https://'.$_SERVER['SERVER_NAME'].''.EXTRA);
-define('Admin_Email','admin@myexamplan.com');
-define('FROM_Email','admin@myexamplan.com');
-define('BCC_Email','neelesh@myexamplan.com,tarun@myexamplan.com');
-define('CC_Email','');
+// Create a connection using mysqli
+$con = new mysqli($host, $user, $pass, $dbname, $port);
 
-$examcount = array();
-
-$examcount['Basic'] ='2';
-$examcount['Silver'] ='6';
-$examcount['Gold'] ='8';
-$examcount['Platinum'] ='0';
-
-$examcount['1'] ='3';
-$examcount['2'] ='6';
-$examcount['3'] ='9';
-$examcount['4'] ='10000000000000000000000000000';
-*/
-
-// Create connection
-$con = new mysqli("localhost","vgdyxvhcgd","FZwXKQR7r8");
-
-// Check connection
+// Check if the connection was successful
 if ($con->connect_error) {
-  die("Connection failed: " . $con->connect_error);
+    die("Connection failed: " . $con->connect_error);
 }
-else
-{	//echo "Connected successfully";
+
+// Set SSL certificates for secure connection
+$con->ssl_set(NULL, NULL, $sslcert, NULL, NULL);
+
+// Check if SSL was applied successfully
+if (!$con->real_connect($host, $user, $pass, $dbname, $port)) {
+    die("Error connecting to database with SSL: " . $con->connect_error);
 }
-/*
 
-$con = mysqli_connect();
-if (!$con)
-{
-  die('Could not connect: ' . mysqli_error());
-}
-echo "hello"; die("I amnn uujjjdead");*/
+// Perform a query
+//$result = $con->query("SELECT VERSION()");
 
+// Fetch and output the result
+//if ($result) {
+  //  $row = $result->fetch_row();
+  //  echo "MySQL Version: " . $row[0];
+//} else {
+//    echo "Error: " . $con->error;
+//}
 
-// Declare a global variable called $my_global_variable
-global $my_global_variable;
-
-// Set the value of the global variable
-$my_global_variable = "https://smartbusinesssearch.com/";
-
-$select_db = mysqli_select_db( $con, 'vgdyxvhcgd' );
-if ( !$select_db ) {
-    die( 'Database Selection Failed' . mysqli_error( $con ) );	
-}
-else
-{ //echo "DB Selected";
-}	
+// Close the connection
+//$con->close();
 
 ?>
