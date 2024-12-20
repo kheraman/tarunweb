@@ -1,7 +1,7 @@
 <?php
 // Ensure no output before this line
-//session_start(); // Start session at the very top
-// error_reporting(1);
+////session_start(); // Start session at the very top
+// 
 ?>
 <!DOCTYPE html>
 <html lang="zxx">

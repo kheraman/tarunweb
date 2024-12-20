@@ -1,6 +1,6 @@
 <?php 
-//session_start();
-//error_reporting(1);
+////session_start();
+//
 require_once('includes/config.php');
 //print_r($_POST);
 ?>
