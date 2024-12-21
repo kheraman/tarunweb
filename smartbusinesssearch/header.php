@@ -1,6 +1,7 @@
 <?php
 require_once('includes/config.php');
-
+/*
+$bnameval="";
 $bnameval = explode("/", $_SERVER['REQUEST_URI']);
 //print_r($bnameval);
 $bname = $bnameval[1];
@@ -89,7 +90,7 @@ else
 	$meta_keywords= $row["meta_keywords"];
 }
 						
-					
+	*/				
 
 					
 
@@ -98,8 +99,9 @@ else
 <head>
     <title><?php echo $meta_title;?></title>
 	<base href="https://smartbusinesssearch.com/">
-	<meta name="description" content="<?php echo $meta_desc;?>">
-	<meta name="keywords" content="<?php echo $meta_keywords;?>">
+	<meta name="description" content="<?php //echo $meta_desc;?>">
+	<meta name="keywords" content="<?php //echo $meta_keywords;?>">
+	
     
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
