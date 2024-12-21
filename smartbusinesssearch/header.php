@@ -97,7 +97,7 @@ else
 ?>
 
 <head>
-    <title><?php echo $meta_title;?></title>
+    <title><?php //echo $meta_title;?></title>
 	<base href="https://smartbusinesssearch.com/">
 	<meta name="description" content="<?php //echo $meta_desc;?>">
 	<meta name="keywords" content="<?php //echo $meta_keywords;?>">
