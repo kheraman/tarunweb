@@ -50,7 +50,7 @@ $response = json_decode($get_data, true);
 <head>
 <meta charset="utf-8">
 <title>Listing Single </title>
-<base href="https://www.wheretoapp.io/">
+<base href="https://wheretoapp.io/">
 <!-- Stylesheets -->
 <style>
         .auto-container {

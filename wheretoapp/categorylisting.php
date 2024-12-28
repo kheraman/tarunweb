@@ -8,7 +8,7 @@ require_once('includes/config.php')
 <head>
 <meta charset="utf-8">
 <title>Categories </title>
-<base href="https://www.wheretoapp.io/">
+<base href="https://wheretoapp.io/">
 <!-- Stylesheets -->
 <link href="../css/bootstrap.css" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet">
