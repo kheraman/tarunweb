@@ -76,7 +76,8 @@ require_once('includes/config.php')
                         </div>
                     </div>
                 </div>
-				<?php //$c++;  } 	?>
+				<?php //$c++;  
+				} 	?>
                 <!-- Feature Block >
                 <div class="feature-block col-lg-3 col-md-6 col-sm-12">
                     <div class="inner-box">
