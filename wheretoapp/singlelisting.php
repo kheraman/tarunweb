@@ -100,127 +100,9 @@ $response = json_decode($get_data, true);
         
         <!-- Main box -->
         <div class="main-box">
-            <div class="logo-box">
-                <div class="logo"><a href="index.php"><img src="images/logo.png" alt="" title=""></a></div>
-
-                <!-- Search Btn -->
-                <div class="search-box">
-                    <!-- Search Backdrop -->
-                    <div class="search-backdrop"></div>
-
-                    <div class="header-search-form">
-                        <input type="text" name="header-search" id="cusom-search" data-list=".search-list" placeholder="What are you looking for?">
-                        <span class="search-btn"><i class="flaticon-magnifying-glass"></i></span>    
-                    </div>
-
-                    <div class="search-list">
-                        <div class="search-item region">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">City Of London </div>
-                            <span class="cat">Region</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                        <div class="search-item region">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">City of Westminster </div>
-                            <span class="cat">Region</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                        <div class="search-item region">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">Chelsea District </div>
-                            <span class="cat">Region</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                        <div class="search-item listing">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">Top Picks </div>
-                            <span class="cat">Featured Listings</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                        <div class="search-item shopping">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">Shopping </div>
-                            <span class="cat">Category</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                        <div class="search-item food">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">Local Food </div>
-                            <span class="cat">Category</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                        <div class="search-item prize">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">Free Entrance </div>
-                            <span class="cat">Tag</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-<script>	
-
-function onsubmitform()
-{
-	if(document.getElementById('name').value=='')
-	{
-		alert('Please enter Full Name');
-		document.getElementById('name').focus();
-		return false;
-	}
-	if(document.getElementById('email').value=='')
-	{
-		alert('Please enter Email');
-		document.getElementById('email').focus();
-		return false;
-	}
-
-   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
-   if(!document.getElementById('email').value.match(mailformat))  
-   {  
-	   alert('Please enter valid Email');
-	   document.getElementById('email').focus();
-	  
-	  return false; 
-   }
-   if(document.getElementById('subject').value=='')
-	{
-		alert('Please enter subject');
-		document.getElementById('subject').focus();
-		return false;
-	}
-   
-
-	if(document.getElementById('phone').value=='')
-	{
-		alert('Please enter Phone');
-		document.getElementById('phone').focus();
-			return false;
-	}
-	
-	  
-   if(document.getElementById('message').value=='')
-	{
-		alert('Please enter Message');
-		document.getElementById('message').focus();
-		return false;
-	}
-   if(document.getElementById('captcha').value=='')
-	{
-		alert('Please enter Captcha');
-		document.getElementById('captcha').focus();
-		return false;
-	}
-	
-	
-}
+           
 
 
-
-
-</script>
             <!--Nav Box-->
             
             <?php include("header.php");  ?>
@@ -232,7 +114,7 @@ function onsubmitform()
         <!-- Mobile Nav -->
         <div id="nav-mobile"></div>
 
-        <!-- Header Search -->
+        <!-- Header Search >
         <div class="search-popup">
             <span class="search-back-drop"></span>
             
@@ -246,7 +128,7 @@ function onsubmitform()
                 </form>
             </div>
         </div>
-        <!-- End Header Search -->
+        < End Header Search -->
 
     </header>
     <!--End Main Header -->

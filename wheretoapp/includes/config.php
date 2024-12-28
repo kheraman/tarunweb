@@ -30,7 +30,7 @@ if (!$con->real_connect($host, $user, $pass, $dbname, $port)) {
 global $my_global_variable;
 
 // Set the value of the global variable
-$my_global_variable = "https://wheretoapp.com/";
+$my_global_variable = "https://wheretoapp.io/";
 
 
 // Perform a query
