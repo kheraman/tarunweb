@@ -56,6 +56,65 @@
 </div>
 <!-- Banner end -->
 
+ <!-- Start How it Works Section -->
+    <div class="container-fluid  bg-grea-3 py-5">
+        <div class="container pt-5">
+            <div class="main-title text-center">
+                <h1>How it Works</h1>
+                <p>Bringing business and community members together.</p>
+            </div>
+
+            <div class="home-features-wrapper row" data-columns="3">
+                <div class="col-md-4">
+                    <div class="home-feature">
+                        <div class="home-feature-media">
+                            <img src="images/search-online.svg" alt="">
+                        </div>
+                        <div class="home-feature-title">
+                            <h2>Find Businesses</h2>
+                        </div>
+                        <div class="home-feature-description">
+                            <p>Discover &amp; connect with great local businesses in your local neighborhood like
+                                dentists, hair stylists and more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="home-feature">
+                        <div class="home-feature-media">
+                            <img src="images/find-listing.svg" alt="">
+                        </div>
+                        <div class="home-feature-title">
+                            <h2>Review Listings</h2>
+                        </div>
+                        <div class="home-feature-description">
+                            <p>Get valuable insights about listings and tell other readers about your experiences by
+                                leaving reviews for businesses.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="home-feature">
+                        <div class="home-feature-media">
+                            <img src="images/make-online-booking.svg" alt="">
+                        </div>
+                        <div class="home-feature-title">
+                            <h2>Make a Reservation</h2>
+                        </div>
+                        <div class="home-feature-description">
+                            <p>Easily setup an appointment directly from the business listing page using our integrated
+                                booking options.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Start How it Works Section -->
+
 <?php
 $result_count = mysqli_query($con,"SELECT A.category_id, COUNT(*) AS record_count, B.category_name FROM listing_master A JOIN category_master B ON A.category_id = B.cat_id WHERE A.category_id in (1,3,15,17,18) GROUP BY A.category_id, B.category_name");
 					$total_records = mysqli_fetch_array($result_count);
@@ -242,6 +301,39 @@ $result_count = mysqli_query($con,"SELECT A.category_id, COUNT(*) AS record_coun
     </div>
 </div>
 <!-- Listing item end -->
+
+
+<div class="container-fluid py-5">
+     <div class="container">
+         <div class="elementor-widget-wrap elementor-element-populated">
+             
+            <div class="elementor-background-overlay"></div>
+
+            <div class="position-relative">
+                    <div class="elementor-element elementor-element-c676fc7 elementor-widget elementor-widget-heading"
+                    data-id="c676fc7" data-element_type="widget" data-widget_type="heading.default">
+                    <div class="elementor-widget-container">
+                        <h2 class="elementor-heading-title elementor-size-default">Are You a Local Business?</h2>
+                    </div>
+                </div>
+                <div class="elementor-element elementor-element-4c6efc4 elementor-widget elementor-widget-heading"
+                    data-id="4c6efc4" data-element_type="widget" data-widget_type="heading.default">
+                    <div class="elementor-widget-container">
+                        <p class="elementor-heading-title elementor-size-default">Join the community of hundreds of
+                            flourishing local business in your city.</p>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-lg btn-danger mt-30">Get Started</a>
+
+            </div>
+           
+         </div>
+     </div>
+
+ </div>
+ 
+ 
 
 <!-- Services start >
 <div class="services content-area ">
