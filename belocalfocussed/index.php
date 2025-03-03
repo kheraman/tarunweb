@@ -68,7 +68,7 @@
                 <div class="col-md-4">
                     <div class="home-feature">
                         <div class="home-feature-media">
-                            <img src="images/search-online.svg" alt="">
+                            <img src="img/search-online.svg" alt="">
                         </div>
                         <div class="home-feature-title">
                             <h2>Find Businesses</h2>
@@ -82,7 +82,7 @@
                 <div class="col-md-4">
                     <div class="home-feature">
                         <div class="home-feature-media">
-                            <img src="images/find-listing.svg" alt="">
+                            <img src="img/find-listing.svg" alt="">
                         </div>
                         <div class="home-feature-title">
                             <h2>Review Listings</h2>
@@ -96,7 +96,7 @@
                 <div class="col-md-4">
                     <div class="home-feature">
                         <div class="home-feature-media">
-                            <img src="images/make-online-booking.svg" alt="">
+                            <img src="img/make-online-booking.svg" alt="">
                         </div>
                         <div class="home-feature-title">
                             <h2>Make a Reservation</h2>
