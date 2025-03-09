@@ -143,7 +143,7 @@ function onsubmitform()
                     <span class="rent"><?php echo $response['location_info']['category_name'];?></span>
                     <div class="clearfix"></div>
                     <div class="mb-30">
-                        <div class="location clearfix"><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; } ?>, <?php echo $response['location_info']['city'];?>, <?php echo $response['location_info']['state_iso'];?> - <?php echo $response['location_info']['postal_code']; ?><br>Phone : <?php echo $response['location_info']['phone'];?><br>Website : <a style="color:blue;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank">Click here..</a><br>Sub-Category : <?php echo $response['location_info']['sub_category_name'];?></div>
+                        <div class="location clearfix"><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; } ?><?php echo $response['location_info']['city'];?>, <?php echo $response['location_info']['state_iso'];?> - <?php echo $response['location_info']['postal_code']; ?><br>Phone : <?php echo $response['location_info']['phone'];?><br>Website : <a style="color:blue;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank">Click here..</a><br>Sub-Category : <?php echo $response['location_info']['sub_category_name'];?></div>
                         <div class="clearfix"></div>
                         <!--div class="ratings-2">
                             <span class="ratings-box">4.5/5</span>

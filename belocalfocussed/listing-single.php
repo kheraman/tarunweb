@@ -34,10 +34,11 @@ function callAPI($method, $url, $data){
 
 $get_data = callAPI('GET', 'https://app.synup.com/locations?location_id='.$_GET['lid'], false);
 $response = json_decode($get_data, true);
-/*		echo "<pre>";	
+	echo "<pre>";	
 					print_r($response);	
 					echo "</pre>";
-					
+					//die;
+		/*	 	 				
 			[file_name] => woops-new-pink-logo.png
 					[category_name] => Logo
                             [category] => Logo */
@@ -142,7 +143,7 @@ function onsubmitform()
                     <span class="rent"><?php echo $response['location_info']['category_name'];?></span>
                     <div class="clearfix"></div>
                     <div class="mb-30">
-                        <div class="location clearfix"><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; } ?> <?php echo $response['location_info']['city'];?>, <?php echo $response['location_info']['state_iso'];?> - <?php echo $response['location_info']['postal_code'];  ?><br>Phone : <?php echo $response['location_info']['phone'];?><br>Website : <a style="color:blue;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank">Click here..</a><br>Sub-Category : <?php echo $response['location_info']['sub_category_name'];?></div>
+                        <div class="location clearfix"><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; } ?><?php echo $response['location_info']['city'];?>, <?php echo $response['location_info']['state_iso'];?> - <?php echo $response['location_info']['postal_code'];  ?><br>Phone : <?php echo $response['location_info']['phone'];?><br>Website : <a style="color:blue;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank">Click here..</a><br>Sub-Category : <?php echo $response['location_info']['sub_category_name'];?></div>
                         <div class="clearfix"></div>
                         <!--div class="ratings-2">
                             <span class="ratings-box">4.5/5</span>
@@ -953,7 +954,7 @@ function onsubmitform()
                     "<div class='map-content'>" +
                     "<p style='color:black;font-size:14px;font-weight:bold;'><?php echo $response['location_info']['name'];?> " +					
                     "<ul class='map-properties-list'> " +
-					"<li><i class='flaticon-place'></i><?php   echo $response['location_info']['street'].", "; ?> <?php echo $response['location_info']['city'];?> - <?php echo $response['location_info']['postal_code'];?></li> " +
+					"<li><i class='flaticon-place'></i><?php echo $response['location_info']['street'].", pppp"; ?> <?php echo $response['location_info']['city'];?> - <?php echo $response['location_info']['postal_code'];?></li> " +
                     "<li><i class='flaticon-mail'></i>  <?php echo $response['location_info']['owner_email'];?></li> " +
                     "<li><i class='flaticon-phone'></i>  <?php echo $response['location_info']['phone'];?></li> " +
                     "<li><a href='<?php echo $response['location_info']['biz_url'];?>' target='_blank'><i " +

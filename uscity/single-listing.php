@@ -370,7 +370,7 @@ echo '<iframe width="100%" height="385" frameborder="0" src="https://maps.google
                                     <h4>Contact Info</h4>
                                     <!--span>&nbsp;</span-->
                                     <ul>
-										<li><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; } ?>, <?php echo $response['location_info']['city'];?>, <?php echo $response['location_info']['state_iso'];?> - <?php echo $response['location_info']['postal_code'];  ?></li>
+										<li><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; } ?><?php echo $response['location_info']['city'];?>, <?php echo $response['location_info']['state_iso'];?> - <?php echo $response['location_info']['postal_code'];  ?></li>
 										<li><b>Sub-Category : </b><?php echo $response['location_info']['sub_category_name'];?></li>
                                         <li><b>Phone : </b>+1 <?php echo $response['location_info']['phone'];?></li>
 										<?php if($response['location_info']['owner_email'] != "") { ?>
