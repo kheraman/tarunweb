@@ -34,11 +34,11 @@ function callAPI($method, $url, $data){
 
 $get_data = callAPI('GET', 'https://app.synup.com/locations?location_id='.$_GET['lid'], false);
 $response = json_decode($get_data, true);
-	echo "<pre>";	
+	/*	echo "<pre>";	
 					print_r($response);	
 					echo "</pre>";
 					//die;
-		/*	 	 				
+		 	 				
 			[file_name] => woops-new-pink-logo.png
 					[category_name] => Logo
                             [category] => Logo */
