@@ -159,7 +159,7 @@ function onsubmitform()
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8 col-md-12">
+            <div class="col-lg-9 col-md-12">
                 <!-- main slider carousel items -->
                 <!--div id="listingDetailsSlider" class="carousel listing-details-sliders slide mb-40">
                     <div class="carousel-inner">
@@ -574,7 +574,7 @@ function onsubmitform()
                     </form>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12">
+            <div class="col-lg-3 col-md-12">
                 <div class="sidebar-right">
                     <!-- Booking now start -->
                     <!--div class="widget booking-now bn-3">
@@ -621,62 +621,31 @@ function onsubmitform()
                         <ul>
                             
 					<?php					
-						
-						foreach ($response['location_info']['business_hours'] as $key => $value)
-						{
-							foreach ($value as $k => $v)
-							{
-								echo "<li>".$k."\n";
-								 
-									foreach ($v as $ik => $iv)
-									{
-										
-										if(!is_array($iv))
-										{
-											//echo $v[$ik];
-											if($v[$ik] == 'closed')
-											{
-												echo "<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Closed</span>";
-											}	
-										}
-										else
-										{	
-											//echo "uu";
-											foreach ($iv as $jk => $jv)
-											{
-												
-												if($iv[$jk]['start'] != "" && $iv[$jk]['end'] != "")
-												{	
-												
-													foreach (array_reverse($jv) as $kk => $kv)
-													{	
-														//if($k == "Tuesday")
-														//{print($jv[$kk]."pp");}
-														//print($jv['start']);
-														if($jv[$kk] != "")
-														{																																echo "<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;".$kv."</span>";
-														}	
-														else
-														{
-															echo "<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Closeddd</span>";
-														}													
-													}
-												}	
-												else
-												{
-													echo "rr";
-													
-												}	
+										if (isset($response["location_info"]["business_hours"]["days"])) {
+										echo "<style> li { list-style-type: none; } .day { font-weight: bold; color: #007BFF; } .closed { color: red; } .time { text-align: right; display: block; } .open24 { color: green; font-weight: bold; } </style>";
+										echo "<ul>";
+										foreach ($response["location_info"]["business_hours"]["days"] as $day => $details) {
+											echo "<li class='day'>" . $day . "</li>";
+											if (isset($details["type"])) {
+												if ($details["type"] === "closed") {
+													echo "<li class='closed'>&nbsp;&nbsp;&nbsp;&nbsp;Closed</li>\n";
+													continue;
+												} elseif ($details["type"] === "24h") {
+													echo "<li class='open24'>&nbsp;&nbsp;&nbsp;&nbsp;Open 24 Hours</li>\n";
+													continue;
+												}
 											}
-											
+											if (isset($details["slots"]) && is_array($details["slots"])) {
+												echo "<ul>";
+												foreach ($details["slots"] as $slot) {
+													echo "<li class='time'>&#8226; " . strtoupper($slot["start"]) . " - " . strtoupper($slot["end"]) . "</li>\n";
+												}
+												echo "</ul>";
+											}
 										}
-									}
-									
-								echo "</li>";
-							}
-							
-						}				
-						?>                   
+										echo "</ul>";
+										}	
+									?>                
                         </ul>
                     </div>
                     <!-- Recent listing start -->
