@@ -348,11 +348,13 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
                 <!-- Page navigation start -->
 				
 				<?php
-				$previous_page = $_GET['page_no']-1;
-				$next_page = $_GET['page_no']+1;
-				$adjacents = 2;
-$second_last = $total_no_of_pages - 1;
+					
+					
+					$previous_page = isset($_GET['page_no']) ? $_GET['page_no'] - 1 : 0;
+					$next_page = isset($_GET['page_no']) ? $_GET['page_no'] + 1 : 0;
 
+$adjacents = 0;
+					
 				?>
 				
                 <div class="pagination-box text-center">
@@ -360,7 +362,7 @@ $second_last = $total_no_of_pages - 1;
                         <ul class="pagination">
 						 
 						<li <?php if($page_no <= 1){ echo "class='disabled'"; } ?>>
-						<a <?php if($page_no > 1){ echo "href='Category/".$_GET["cat_id"]."/$previous_page'"; } ?>>Previous</a>
+						<a <?php if($page_no > 1){ echo "href='category/".$_GET["cat_id"]."/$previous_page'"; } ?>>Previous</a>
 						</li>
 						 
 						<?php
@@ -369,7 +371,7 @@ $second_last = $total_no_of_pages - 1;
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						}
@@ -380,40 +382,42 @@ $second_last = $total_no_of_pages - 1;
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						echo "<li><a>...</a></li>";
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$second_last'>$second_last</a></li>";
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
+						//echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=$second_last'>$second_last</a></li>";
+						echo "<li><a href='category/".$_GET["cat_id"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
 						}
 						 
 						elseif($page_no > 4 && $page_no < $total_no_of_pages - 4) {
-						echo "<li><a href='Category/".$_GET["cat_id"]."/1'>1</a></li>";
-						echo "<li><a href='Category/".$_GET["cat_id"]."/2'>2</a></li>";
-						echo "<li><a>...</a></li>";
-						for ($counter = $page_no - $adjacents; $counter <= $page_no + $adjacents; $counter++) {
+						echo "<li><a href='category/".$_GET["cat_id"]."/1'>1</a></li>";
+						echo "<li><a href='category/".$_GET["cat_id"]."/2'>2</a></li>";
+						//echo "<li><a>...</a></li>";
+						
+						for ($counter = $page_no - $adjacents; $counter <= $page_no + $adjacents; $counter++) 
+						{
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						echo "<li><a>...</a></li>";
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$second_last'>$second_last</a></li>";
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
+						//echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=$second_last'>$second_last</a></li>";
+						echo "<li><a href='category/".$_GET["cat_id"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
 						}
 						 
 						else {
-						echo "<li><a href='Category/".$_GET["cat_id"]."/1'>1</a></li>";
-						echo "<li><a href='Category/".$_GET["cat_id"]."/2'>2</a></li>";
+						echo "<li><a href='category/".$_GET["cat_id"]."/1'>1</a></li>";
+						echo "<li><a href='category/".$_GET["cat_id"]."/2'>2</a></li>";
 						echo "<li><a>...</a></li>";
 						 
 						for ($counter = $total_no_of_pages - 6; $counter <= $total_no_of_pages; $counter++) {
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						}
@@ -421,10 +425,10 @@ $second_last = $total_no_of_pages - 1;
 						?>
 						 
 						<li <?php if($page_no >= $total_no_of_pages){ echo "class='disabled'"; } ?>>
-						<a <?php if($page_no < $total_no_of_pages) { echo "href='Category/".$_GET["cat_id"]."/$next_page'"; } ?>>Next</a>
+						<a <?php if($page_no < $total_no_of_pages) { echo "href='category/".$_GET["cat_id"]."/$next_page'"; } ?>>Next</a>
 						</li>
 						<?php if($page_no < $total_no_of_pages){
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
+						echo "<li><a href='category/".$_GET["cat_id"]."/$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
 						} ?>
 						</ul>
                     </nav>

@@ -549,12 +549,15 @@ function onsubmitform()
 <?php
 				$previous_page = $_GET['page_no']-1;
 				$next_page = $_GET['page_no']+1;
+				
+				$adjacents = 2;
+$second_last = $total_no_of_pages - 1;
 				?>
                        <!-- Pagination -->
                         <nav class="ls-pagination">
                             <ul>
                                 <li class="prev" <?php if($page_no <= 1){ echo "class='disabled'"; } ?>>
-									<a <?php if($page_no > 1){ echo "href='?cid=".$cid."&page_no=$previous_page'"; } ?>><i class="flaticon-left"></i>Previous</a>
+									<a <?php if($page_no > 1){ echo "href='Category/".$cid."/$previous_page'"; } ?>><i class="flaticon-left"></i>Previous</a>
 									</li>
 								
 								<!--li class="prev"><a href="#"><i class="flaticon-left"></i> Prev</a></li>
@@ -569,7 +572,7 @@ function onsubmitform()
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='?cid=".$cid."&page_no=$counter'>$counter</a></li>";
+						echo "<li><a href='Category/".$cid."/$counter'>$counter</a></li>";
 						}
 						}
 						}
@@ -580,40 +583,40 @@ function onsubmitform()
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='?cid=".$cid."&page_no=$counter'>$counter</a></li>";
+						echo "<li><a href='Category/".$cid."/$counter'>$counter</a></li>";
 						}
 						}
 						echo "<li><a>...</a></li>";
-						echo "<li><a href='?cid=".$cid."&page_no=$second_last'>$second_last</a></li>";
-						echo "<li><a href='?cid=".$cid."&page_no=$total_no_of_pages'>$total_no_of_pages</a></li>";
+						echo "<li><a href='Category/".$cid."/$second_last'>$second_last</a></li>";
+						echo "<li><a href='Category/".$cid."/$total_no_of_pages'>$total_no_of_pages</a></li>";
 						}
 						 
 						elseif($page_no > 4 && $page_no < $total_no_of_pages - 4) {
-						echo "<li><a href='?cid=".$cid."&page_no=1'>1</a></li>";
-						echo "<li><a href='?cid=".$cid."&page_no=2'>2</a></li>";
+						echo "<li><a href='Category/".$cid."/1'>1</a></li>";
+						echo "<li><a href='Category/".$cid."/2'>2</a></li>";
 						echo "<li><a>...</a></li>";
 						for ($counter = $page_no - $adjacents; $counter <= $page_no + $adjacents; $counter++) {
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='?cid=".$cid."&page_no=$counter'>$counter</a></li>";
+						echo "<li><a href='Category/".$cid."/$counter'>$counter</a></li>";
 						}
 						}
 						echo "<li><a>...</a></li>";
-						echo "<li><a href='?cid=".$cid."&page_no=$second_last'>$second_last</a></li>";
-						echo "<li><a href='?cid=".$cid."&page_no=$total_no_of_pages'>$total_no_of_pages</a></li>";
+						echo "<li><a href='Category/".$cid."/$second_last'>$second_last</a></li>";
+						echo "<li><a href='Category/".$cid."/$total_no_of_pages'>$total_no_of_pages</a></li>";
 						}
 						 
 						else {
-						echo "<li><a href='?cid=".$cid."&page_no=1'>1</a></li>";
-						echo "<li><a href='?cid=".$cid."&page_no=2'>2</a></li>";
+						echo "<li><a href='Category/".$cid."/1'>1</a></li>";
+						echo "<li><a href='Category/".$cid."/2'>2</a></li>";
 						echo "<li><a>...</a></li>";
 						 
 						for ($counter = $total_no_of_pages - 6; $counter <= $total_no_of_pages; $counter++) {
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='?cid=".$cid."&page_no=$counter'>$counter</a></li>";
+						echo "<li><a href='Category/".$cid."/$counter'>$counter</a></li>";
 						}
 						}
 						}
@@ -621,10 +624,10 @@ function onsubmitform()
 						?>
 						 
 						<li class="next" <?php if($page_no >= $total_no_of_pages){ echo "class='disabled'"; } ?>>
-						<a <?php if($page_no < $total_no_of_pages) { echo "href='?cat_id=".$_GET["cat_id"]."&page_no=$next_page'"; } ?>>Next <i class="flaticon-right"></i></a>
+						<a <?php if($page_no < $total_no_of_pages) { echo "href='Category/".$_GET["cid"]."/$next_page'"; } ?>>Next <i class="flaticon-right"></i></a>
 						</li>
 						<?php if($page_no < $total_no_of_pages){
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."page_no=$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
+						echo "<li><a href='Category/".$_GET["cid"]."/$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
 						} ?>
 								
 								<!--li class="next"><a href="#">Next <i class="flaticon-right"></i> </a></li-->
@@ -663,5 +666,3 @@ function onsubmitform()
 <script src="js/maps.js"></script>
 </body>
 </html>
-
-

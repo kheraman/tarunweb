@@ -6,3 +6,9 @@ RewriteRule ^/?Listing/L-(.*?)/?$ /singlelisting.php?lid=$1 [L]
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
 
+
+# Redirect Category URLs with pagination
+RewriteRule ^Category/([0-9]+)/([0-9]+)/?$ categorylisting.php?cid=$1&page_no=$2 [L,QSA]
+
+# Redirect Category URLs without pagination (default to page 1)
+RewriteRule ^Category/([0-9]+)/?$ categorylisting.php?cid=$1&page_no=1 [L,QSA]

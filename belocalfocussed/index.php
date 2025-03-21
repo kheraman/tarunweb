@@ -303,7 +303,7 @@ $result_count = mysqli_query($con,"SELECT A.category_id, COUNT(*) AS record_coun
 <!-- Listing item end -->
 
 
-<div class="container-fluid py-5">
+<!--div class="container-fluid py-5">
      <div class="container">
          <div class="elementor-widget-wrap elementor-element-populated">
              
@@ -331,7 +331,7 @@ $result_count = mysqli_query($con,"SELECT A.category_id, COUNT(*) AS record_coun
          </div>
      </div>
 
- </div>
+ </div-->
  
  
 
