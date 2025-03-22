@@ -1,58 +1,24 @@
 <?php 
-session_start();
-error_reporting(1);
-require_once('includes/config.php')
+////session_start();
+//
+require_once('includes/config.php');
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
-<head>
-    <title>Belocalfocussed</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
 
-    <!-- External CSS libraries -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-submenu.css">
+	<script language="javascript">
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
-    <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
-    <link rel="stylesheet" type="text/css" href="css/daterangepicker.css">
-    <link rel="stylesheet" href="css/leaflet.css" type="text/css">
-    <link rel="stylesheet" href="css/map.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" type="text/css" href="fonts/linearicons/style.css">
-    <link rel="stylesheet" type="text/css"  href="css/jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" type="text/css"  href="css/dropzone.css">
-    <link rel="stylesheet" type="text/css"  href="css/slick.css">
+function onsubmitform()
+{
+	if(document.getElementById('searchtext').value=='')
+	{
+		alert('Please enter text to search');
+		document.getElementById(searchtext).focus();
+		return false;
+	}
+	
+</script>
 
-    <!-- Custom stylesheet -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" id="style_sheet" href="css/skins/default.css">
-
-    <!-- Favicon icon -->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" >
-
-    <!-- Google fonts -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,300,700">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link rel="stylesheet" type="text/css" href="css/ie10-viewport-bug-workaround.css">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script  src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script  src="js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script  src="js/html5shiv.min.js"></script>
-    <script  src="js/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body>
-<div class="page_loader"></div>
 
 <!-- Main header start -->
 <?php include("header.php");?>
@@ -84,30 +50,41 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
         <div class="row">
             <div class="col-lg-12 col-md-12 col-xs-12">
                 <!-- Option bar start -->
-                <!--div class="option-bar">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-7 col-sm-8 col-8">
-                            <div class="sorting-options2">
-                                <span class="sort">Sort by:</span>
-                                <select class="selectpicker search-fields" name="default-order">
-                                    <option>Default Order</option>
-                                    <option>Price High to Low</option>
-                                    <option>Price: Low to High</option>
-                                    <option>Newest listing</option>
-                                    <option>Oldest listing</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-5 col-sm-4 col-4">
-                            <div class="sorting-options">
-                                <a href="list-fullwidth.html" class="change-view-btn"><i class="fa fa-th-list"></i></a>
-                                <a href="grid-fullwidth.html" class="change-view-btn active-view-btn"><i class="fa fa-th-large"></i></a>
-                            </div>
-                        </div>
+                <div class="option-bar">
+                    <form method="POST" action="" enctype="multipart/form-data" id="search-form" onsubmit='return onsubmitform()'>
+		     				
+					<div class="row">
+                        
+						
+							<div class="col-lg-6 col-md-5 col-sm-4 col-4">
+								<div class="form-group name">
+									<input type="text" name="searchtext" id="searchtext" class="form-control" placeholder="Enter Text to search">
+								</div>
+							</div>
+							
+							<div class="col-lg-2 col-md-5 col-sm-4 col-4">
+								<div class="sorting-options">
+									<!--a href="list-fullwidth.html" class="change-view-btn"><i class="fa fa-th-list"></i></a>
+									<a href="grid-fullwidth.html" class="change-view-btn active-view-btn"><i class="fa fa-th-large"></i></a-->
+									<div class="send-btn text-center">
+										<button type="submit" class="btn btn-md button-theme">Search</button>
+									</div>
+								</div>
+							</div>
+						
                     </div>
-                </div-->
+					</form>
+                </div>
                 <div class="row">
                     <?php
+					if (isset($_POST['searchtext']) && $_POST['searchtext']!="") 
+					{
+						$where = " and name like '%".$_POST['searchtext']."%'";
+					} 
+					else 
+					{
+						$where = "";
+					}
 					
 					/*Pagination*/
 					if (isset($_GET['page_no']) && $_GET['page_no']!="") {
@@ -121,13 +98,15 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 					$total_records_per_page = 9;
 					$offset = ($page_no-1) * $total_records_per_page;
 					
-					$result_count = mysqli_query($con,"SELECT COUNT(*) As total_records FROM listing_master where category_id=".$_GET["cat_id"]);
+					//echo "SELECT COUNT(*) As total_records FROM listing_master where category_id=".$_GET["cat_id"]." ".$where;
+					$result_count = mysqli_query($con,"SELECT COUNT(*) As total_records FROM listing_master where category_id=".$_GET["cat_id"]." ".$where);
 					$total_records = mysqli_fetch_array($result_count);
 					$total_records = $total_records['total_records'];
 					$total_no_of_pages = ceil($total_records / $total_records_per_page);
 					
 					
-					$sql = "select * from listing_master where category_id = ".$_GET["cat_id"]." LIMIT $offset, $total_records_per_page";							
+					
+					$sql = "select * from listing_master where category_id = ".$_GET["cat_id"]." ".$where." LIMIT $offset, $total_records_per_page";							
 					$result = mysqli_query($con,$sql);							
 							
 							//die;
@@ -159,7 +138,7 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
                             <div class="detail">
                                 <div class="top">
                                     <h3 class="title">
-                                        <a href="listing-single.php?lid=<?php echo $row['yid'];?>"><?php echo $row['name'];?></a>
+                                        <a href="<?php echo $my_global_variable;?>Listing/L-<?php echo $row['yid'];?>"><?php echo $row['name'];?></a>
                                     </h3>
                                     <div class="location">
                                         <a href="#"><i class="flaticon-pin"></i><?php echo $row['street'];?>, <?php echo $row['city'];?>, <?php echo $row['state_iso'];?>-<?php echo $row['postal_code'];?></a>
@@ -371,6 +350,9 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 				<?php
 				$previous_page = $_GET['page_no']-1;
 				$next_page = $_GET['page_no']+1;
+				$adjacents = 2;
+$second_last = $total_no_of_pages - 1;
+
 				?>
 				
                 <div class="pagination-box text-center">
@@ -378,7 +360,7 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
                         <ul class="pagination">
 						 
 						<li <?php if($page_no <= 1){ echo "class='disabled'"; } ?>>
-						<a <?php if($page_no > 1){ echo "href='?cat_id=".$_GET["cat_id"]."&page_no=$previous_page'"; } ?>>Previous</a>
+						<a <?php if($page_no > 1){ echo "href='Category/".$_GET["cat_id"]."/$previous_page'"; } ?>>Previous</a>
 						</li>
 						 
 						<?php
@@ -387,7 +369,7 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=$counter'>$counter</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						}
@@ -398,40 +380,40 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=$counter'>$counter</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						echo "<li><a>...</a></li>";
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=$second_last'>$second_last</a></li>";
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=$total_no_of_pages'>$total_no_of_pages</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$second_last'>$second_last</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
 						}
 						 
 						elseif($page_no > 4 && $page_no < $total_no_of_pages - 4) {
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=1'>1</a></li>";
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=2'>2</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/1'>1</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/2'>2</a></li>";
 						echo "<li><a>...</a></li>";
 						for ($counter = $page_no - $adjacents; $counter <= $page_no + $adjacents; $counter++) {
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=$counter'>$counter</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						echo "<li><a>...</a></li>";
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=$second_last'>$second_last</a></li>";
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=$total_no_of_pages'>$total_no_of_pages</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$second_last'>$second_last</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
 						}
 						 
 						else {
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=1'>1</a></li>";
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=2'>2</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/1'>1</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/2'>2</a></li>";
 						echo "<li><a>...</a></li>";
 						 
 						for ($counter = $total_no_of_pages - 6; $counter <= $total_no_of_pages; $counter++) {
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."&page_no=$counter'>$counter</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						}
@@ -439,10 +421,10 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 						?>
 						 
 						<li <?php if($page_no >= $total_no_of_pages){ echo "class='disabled'"; } ?>>
-						<a <?php if($page_no < $total_no_of_pages) { echo "href='?cat_id=".$_GET["cat_id"]."&page_no=$next_page'"; } ?>>Next</a>
+						<a <?php if($page_no < $total_no_of_pages) { echo "href='Category/".$_GET["cat_id"]."/$next_page'"; } ?>>Next</a>
 						</li>
 						<?php if($page_no < $total_no_of_pages){
-						echo "<li><a href='?cat_id=".$_GET["cat_id"]."page_no=$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
 						} ?>
 						</ul>
                     </nav>
