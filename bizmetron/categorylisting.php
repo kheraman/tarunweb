@@ -296,7 +296,7 @@ function onsubmitform()
                                     <a href="#" class="active"><span class="icon flaticon-squares"></span></a>
                                     <a href="#"><span class="icon flaticon-setup"></span></a>
                                 </div-->
-                                <div class="text"><?php echo $total_records;?> Results Found in <span style="color:red;"><?php if($catrowname["category_name"] == "") echo  "All "; else echo $catrowname["category_name"];?> </span> category (Showing 1-10)</div>
+                                <div class="text"><?php echo $total_records;?> Results Found in <?php echo $catrowname["category_name"];?> </span> category (Showing 1-10)</div>
                             </div>
                             <!--div class="sort-by">
                                 <select class="chosen-select">
