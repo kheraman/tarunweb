@@ -104,7 +104,7 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 					
 					
 					
-					$sql = "select * from listing_master where category_id = ".$_GET["cat_id"]." ".$where." LIMIT $offset, $total_records_per_page";							
+					$sql = "select * from listing_master where category_id = ".$_GET["cat_id"]." ".$where." order by name asc LIMIT $offset, $total_records_per_page";							
 					$result = mysqli_query($con,$sql);							
 							
 							//die;

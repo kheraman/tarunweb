@@ -6,7 +6,7 @@ require_once('includes/config.php')
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-    <title>Belocalfocussed</title>
+    <title>GoLocalPages</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
@@ -127,7 +127,7 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 					$total_no_of_pages = ceil($total_records / $total_records_per_page);
 					
 					
-					$sql = "select * from listing_master where category_id = ".$_GET["cat_id"]." LIMIT $offset, $total_records_per_page";							
+					$sql = "select * from listing_master where category_id = ".$_GET["cat_id"]."  order by name asc LIMIT $offset, $total_records_per_page";							
 					$result = mysqli_query($con,$sql);							
 							
 							//die;

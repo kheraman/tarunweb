@@ -52,7 +52,7 @@ require_once('includes/config.php')
             </div>
 			<div class="row">
 			<?php
-			 $sql = "select * from category_master";							
+			 $sql = "select * from category_master order by category_name asc";							
 					$result = mysqli_query($con,$sql);							
 							
 							//die;

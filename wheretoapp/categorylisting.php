@@ -311,7 +311,7 @@ function onsubmitform()
 					
 					
 					
-					$sql = "select * from listing_master ".$where." LIMIT $offset, $total_records_per_page";							
+					$sql = "select * from listing_master ".$where." order by name asc LIMIT $offset, $total_records_per_page";							
 					$result = mysqli_query($con,$sql);							
 							
 							//die;

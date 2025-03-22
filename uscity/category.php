@@ -223,7 +223,7 @@
 							$total_no_of_pages = ceil($total_records / $total_records_per_page);
 							*/
 							
-							$sql = "select * from category_master order by RAND()";							
+							$sql = "select * from category_master order by category_name asc";							
 							$result = mysqli_query($con,$sql);							
 									
 									//die;
