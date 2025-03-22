@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-<?php include("header.php");?>
+<?php 
+error_reporting(0);
+include("header.php");?>
 <?php
 
 $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];							
@@ -421,8 +423,8 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 						}
 						}
 						echo "<li><a>...</a></li>";
-						echo "<li><a href='Category/".$_GET["cid"]."/$second_last'>$second_last</a></li>";
-						echo "<li><a href='Category/".$_GET["cid"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$second_last'>$second_last</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
 						}
 						 
 						elseif($page_no > 4 && $page_no < $total_no_of_pages - 4) {
