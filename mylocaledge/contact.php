@@ -157,7 +157,7 @@ function onsubmitform()
                             <div class="default-form">
                                 <!--Comment Form-->
 								<?php
-								if($_GET['value'] == "thanks")
+								if($_GET['value'] == "thanks" && isset($_GET['value']))
 								{
 									?>
 									
@@ -172,7 +172,7 @@ function onsubmitform()
 									
 									<?php
 								}
-								elseif($_GET['value'] == "oops")
+								else($_GET['value'] == "oops" && isset($_GET['value']))
 								{	
 								?>
 									
@@ -186,7 +186,7 @@ function onsubmitform()
 									</div>
 									
 									<?php
-									}
+								}
 								?>
                                 <form method="post" action="mailer.php" enctype="multipart/form-data" id="contact-form" onsubmit='return onsubmitform()'>
                                     <div class="row clearfix ">
