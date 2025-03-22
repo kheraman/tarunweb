@@ -151,6 +151,7 @@
 </div>
 <!-- Categories end -->
 
+<?php /* ?>
 <!-- Listing item start -->
 <div class="listing-item content-area-14 bg-grea-3">
     <div class="container">
@@ -230,7 +231,7 @@
     </div>
 </div>
 <!-- Listing item end -->
-
+<?php */ ?>
 <!-- Services start >
 <div class="services content-area ">
     <div class="container">

@@ -222,6 +222,7 @@ $result_count = mysqli_query($con,"SELECT A.category_id, COUNT(*) AS record_coun
 </div>
 <!-- Categories end -->
 
+<?php /*  ?>
 <!-- Listing item start -->
 <div class="listing-item content-area-14 bg-grea-3">
     <div class="container">
@@ -301,7 +302,7 @@ $result_count = mysqli_query($con,"SELECT A.category_id, COUNT(*) AS record_coun
     </div>
 </div>
 <!-- Listing item end -->
-
+<?php */ ?>
 
 <!--div class="container-fluid py-5">
      <div class="container">
