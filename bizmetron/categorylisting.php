@@ -550,8 +550,7 @@ function onsubmitform()
 				$previous_page = $_GET['page_no']-1;
 				$next_page = $_GET['page_no']+1;
 				
-				$adjacents = 2;
-$second_last = $total_no_of_pages - 1;
+			
 				?>
                        <!-- Pagination -->
                         <nav class="ls-pagination">
