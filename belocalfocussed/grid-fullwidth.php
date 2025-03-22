@@ -159,7 +159,7 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
                             <div class="detail">
                                 <div class="top">
                                     <h3 class="title">
-                                        <a href="listing-single.php?lid=<?php echo $row['yid'];?>"><?php echo $row['name'];?></a>
+                                        <a href="Listing/L-<?php echo $row['yid'];?>"><?php echo $row['name'];?></a>
                                     </h3>
                                     <div class="location">
                                         <a href="#"><i class="flaticon-pin"></i><?php echo $row['street'];?>, <?php echo $row['city'];?>, <?php echo $row['state_iso'];?>-<?php echo $row['postal_code'];?></a>
