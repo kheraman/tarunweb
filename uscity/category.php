@@ -233,7 +233,7 @@
 							
 							?>
                         <div class="col-lg-4 col-sm-6">
-                            <a class="arrange-items" href="Categorylistings/<?php echo $row['cat_id'];?>">
+                            <a class="arrange-items" href="Category/<?php echo $row['cat_id'];?>">
                                 <div class="arrange-pic">
                                     <img src="img/cate/<?php echo $row['image'];?>" alt="">
                                     <!--div class="rating">4.9</div-->

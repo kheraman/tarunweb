@@ -397,7 +397,7 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
                                 <ul class="pagination">
 						 
 						<li <?php if($page_no <= 1){ echo "class='disabled'"; } ?>>
-						<a <?php if($page_no > 1){ echo "href='Category/".$_GET["cid"]."/$previous_page'"; } ?>>Previous</a>
+						<a <?php if($page_no > 1){ echo "href='Category/".$_GET["cat_id"]."/$previous_page'"; } ?>>Previous</a>
 						</li>
 						 
 						<?php
@@ -406,7 +406,7 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='Category/".$_GET["cid"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						}
@@ -417,7 +417,7 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='Category/".$_GET["cid"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						echo "<li><a>...</a></li>";
@@ -426,31 +426,31 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 						}
 						 
 						elseif($page_no > 4 && $page_no < $total_no_of_pages - 4) {
-						echo "<li><a href='Category/".$_GET["cid"]."/1'>1</a></li>";
-						echo "<li><a href='Category/".$_GET["cid"]."/2'>2</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/1'>1</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/2'>2</a></li>";
 						echo "<li><a>...</a></li>";
 						for ($counter = $page_no - $adjacents; $counter <= $page_no + $adjacents; $counter++) {
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='Category/".$_GET["cid"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						echo "<li><a>...</a></li>";
-						echo "<li><a href='Category/".$_GET["cid"]."/$second_last'>$second_last</a></li>";
-						echo "<li><a href='Category/".$_GET["cid"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$second_last'>$second_last</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
 						}
 						 
 						else {
-						echo "<li><a href='Category/".$_GET["cid"]."/1'>1</a></li>";
-						echo "<li><a href='Category/".$_GET["cid"]."/2'>2</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/1'>1</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/2'>2</a></li>";
 						echo "<li><a>...</a></li>";
 						 
 						for ($counter = $total_no_of_pages - 6; $counter <= $total_no_of_pages; $counter++) {
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='Category/".$_GET["cid"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						}
@@ -458,10 +458,10 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 						?>
 						 
 						<li <?php if($page_no >= $total_no_of_pages){ echo "class='disabled'"; } ?>>
-						<a <?php if($page_no < $total_no_of_pages) { echo "href='Category/".$_GET["cid"]."/$next_page'"; } ?>>Next</a>
+						<a <?php if($page_no < $total_no_of_pages) { echo "href='Category/".$_GET["cat_id"]."/$next_page'"; } ?>>Next</a>
 						</li>
 						<?php if($page_no < $total_no_of_pages){
-						echo "<li><a href='Category/".$_GET["cid"]."/$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
+						echo "<li><a href='Category/".$_GET["cat_id"]."/$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
 						} ?>
 						</ul>
                             </div>
