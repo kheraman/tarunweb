@@ -115,7 +115,7 @@ function onsubmitform()
                     <form method="post" action="mailer.php" enctype="multipart/form-data" id="contact-form" class="contact-form" onsubmit='return onsubmitform()'>
                         <div class="row">
 						<?php
-					if($_GET['value'] == "thanks")
+					if(isset($_GET['value']) &&  $_GET['value'] == "thanks")
 					{
 						?>
 						

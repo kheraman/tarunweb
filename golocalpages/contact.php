@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-    <title>DirX - Directory Listing HTML Template</title>
+    <title>GoLocalPages</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
@@ -233,21 +233,7 @@ function onsubmitform()
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="opening-hours bg-light">
-                        <h3>Opening Hours</h3>
-                        <ul class="list-style-none">
-                            
-                            <li><strong>Monday</strong> <span> 10 AM - 5 PM</span></li>
-                            <li><strong>Tuesday </strong> <span> 10 AM - 5 PM</span></li>
-                            <li><strong>Wednesday </strong> <span> 10 AM - 5 PM</span></li>
-                            <li><strong>Thursday </strong> <span> 10 AM - 5 PM</span></li>
-                            <li><strong>Friday </strong> <span> 10 AM - 5 PM</span></li>
-                            <li><strong>Saturday </strong> <span> closed</span></li>
-							<li><strong>Sunday</strong> <span class="text-red"> closed</span></li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
         </form>
     </div>

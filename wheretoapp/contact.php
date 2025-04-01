@@ -157,7 +157,7 @@ function onsubmitform()
                             <div class="default-form">
                                 <!--Comment Form-->
 								<?php
-								if($_GET['value'] == "thanks")
+								if(isset($_GET['value']) &&  $_GET['value'] == "thanks")
 								{
 									?>
 									
@@ -172,7 +172,7 @@ function onsubmitform()
 									
 									<?php
 								}
-								elseif($_GET['value'] == "oops")
+								elseif(isset($_GET['value']) &&  $_GET['value'] == "oops")
 								{	
 								?>
 									
