@@ -32,9 +32,9 @@ if (!$con->real_connect($host, $user, $pass, $dbname, $port)) {
 global $my_global_variable,$cate_list,$response;
 
 // Set the value of the global variable
-//$my_global_variable = "https://belocalfocussed.com/";
+$my_global_variable = "https://belocalfocussed.com/";
 
-$my_global_variable = "http://localhost/Synup_LIVE_websites/SYNUP/belocalfocussed/";
+//$my_global_variable = "http://localhost/Synup_LIVE_websites/SYNUP/belocalfocussed/";
 
 
 
