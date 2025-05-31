@@ -1921,99 +1921,39 @@ input[type=checkbox]:checked + label:before {
     border-radius: 4px 4px 0 0;
     opacity: 1;
 }
-
-.listing-item-box .top {
-    padding: 25px 25px;
-    background: white;
-    position: relative;
+/* General compact box styling */
+.compact-listing .top {
+    padding: 10px;
+    background: #fff;
 }
 
-.listing-item-box .top p {
-    margin-bottom: 0;
-}
-
-.listing-item-box .detail .title {
-    font-size: 20px;
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-.listing-item-box .detail .title a:hover {
-    color: #343a40;
-}
-
-.listing-item-box .detail .location {
-    margin: 0 0 10px;
+.compact-listing .title {
     font-size: 14px;
-    font-weight: 500;
+    margin-bottom: 6px;
+    font-weight: 600;
 }
 
-.listing-item-box .detail .location a {
-    color: #535353;
+.compact-listing .title a {
+    color: #007bff;
+    text-decoration: none;
 }
 
-.listing-item-box .detail .location i {
-    margin-right: 2px;
+.compact-listing .title a:hover {
+    text-decoration: underline;
 }
 
-.listing-item-box .facilities-list {
-    background: #f7f7f7;
-    padding: 20px;
+.compact-listing .location {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 5px;
 }
 
-.listing-item-box .ratings {
-    padding: 15px 25px;
-    font-size: 14px;
-    border-top: solid 1px #f3f3f3;
+.compact-listing .location i {
+    margin-right: 4px;
+    color: #888;
 }
 
-.listing-item-box .ratings i {
-    color: orange;
-}
 
-.listing-item-box .footer span {
-    float: right;
-}
-
-.listing-item-box .location {
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.listing-item-box .location i {
-    margin-right: 5px;
-}
-
-.listing-item-box .user {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    border-radius: 100px;
-    padding-right: 20px;
-    background: rgba(0, 0, 0, 0.36);
-    z-index: 20;
-}
-
-.listing-item-box .user .avatar {
-    position: absolute;
-    width: 30px;
-}
-
-.listing-item-box .user .name {
-    margin-left: 40px;
-}
-
-.listing-item-box .user .name h5 {
-    line-height: 30px;
-    margin-bottom: 0;
-    font-size: 13px;
-    font-weight: 400;
-    color: #fff;
-}
-
-.listing-item-box .p-5{
-    padding: 25px 25px 15px!important;
-}
 
 /** Slick slider start**/
 .slick-slider-area {

@@ -32,6 +32,7 @@ else
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	
 // 	//print_r($row); die("hhh");
+/*
 if(isset($_GET["cat_id"]) && $_GET["cat_id"] !="")	
  {
  	$catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];							
@@ -46,7 +47,7 @@ if(isset($_GET["cat_id"]) && $_GET["cat_id"] !="")
   	$meta_keywords= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_keywords"]);
 	
   }
-  /*elseif(isset($_GET["lid"]) && $_GET["lid"] !="")	/* because here data is coming from API which is running on listing single page but here we need to
+  elseif(isset($_GET["lid"]) && $_GET["lid"] !="")	/* because here data is coming from API which is running on listing single page but here we need to
   run it here to get business name etc..so this is the challenge
  {
   	$catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];							
@@ -60,17 +61,19 @@ if(isset($_GET["cat_id"]) && $_GET["cat_id"] !="")
   	$meta_desc= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_desc"]);
   	$meta_keywords= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_keywords"]);
 	
-  }*/
+  }
   else
   {
   	$meta_title= $row["meta_title"];//die("kkk");
   	$meta_desc= $row["meta_desc"];
  	$meta_keywords= $row["meta_keywords"];
 
-  }
+  }*/
 						
 					
-
+$meta_title= "BeLocalFocussed.com - Find Global Businesses Near You";//die("kkk");
+  	$meta_desc= "Search and discover businesses worldwide on BeLocalFocussed. Browse by category, location, or specific services.";
+ 	$meta_keywords= "global business directory, businesses worldwide, top businesses";
 					
 
 ?>
@@ -149,7 +152,7 @@ if(isset($_GET["cat_id"]) && $_GET["cat_id"] !="")
                             <i class="fa fa-home" style="font-size:18px"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/index">Home</a></li>
+                            <li><a class="dropdown-item" href="index.php">Home</a></li>
                             <!--li><a class="dropdown-item" href="index-2.html">Index 02</a></li>
                             <li><a class="dropdown-item" href="index-3.html">Index 03</a></li>
                             <li><a class="dropdown-item" href="index-4.html">Index 04</a></li>
@@ -173,7 +176,7 @@ if(isset($_GET["cat_id"]) && $_GET["cat_id"] !="")
                             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Categories</a>
                                 <ul class="dropdown-menu">
                                     
-                                    <li><a class="dropdown-item" href="/allcategories">All</a></li>
+                                    <li><a class="dropdown-item" href="allcategories.php">All</a></li>
 									<!--li><a class="dropdown-item" href="grid-sidebar.html">Listing Sidebar</a></li>
                                     <li><a class="dropdown-item" href="grid-sidebar-map.html">Listing Sidebar Map</a></li>
                                     <li><a class="dropdown-item" href="fullwidth-map.html">Listing Fullwidth Map</a></li-->

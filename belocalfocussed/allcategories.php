@@ -53,8 +53,18 @@ require_once('includes/config.php')
                         </div>
                     </div>
                 </div-->
-                <div class="row">
-                    <?php
+                <div class="row" style="margin-bottom:30px;">			
+					
+					<div style="margin-bottom:20px;">
+  <?php
+    foreach (range('A', 'Z') as $char) {
+        echo '<a href="<?php echo $my_global_variable;?>allcategories.php?letter=' . $char . '" style="margin:5px; font-weight:bold; color:#007bff; text-decoration:none;">' . $char . '</a>';
+    }
+  ?>
+</div>
+					
+					<?php
+					
 					
 					/*Pagination
 					if (isset($_GET['page_no']) && $_GET['page_no']!="") {
@@ -72,7 +82,7 @@ require_once('includes/config.php')
 					$total_records = mysqli_fetch_array($result_count);
 					$total_records = $total_records['total_records'];
 					$total_no_of_pages = ceil($total_records / $total_records_per_page);
-					*/
+					
 					
 					$sql = "select * from category_master ORDER BY category_name ASC";							
 					$result = mysqli_query($con,$sql);							
@@ -80,48 +90,42 @@ require_once('includes/config.php')
 							//die;
 					
 					while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-						{				
+						{	*/			
+						
+						
+						$selected_letter = isset($_GET['letter']) ? strtoupper($_GET['letter']) : null;
+
+
+						echo '<div style="display:flex; flex-wrap:wrap; gap:10px;">';
+
+						foreach ($all_cate_list as $cat) {
+							$cat_name = $cat['name'];
+							$cat_id = $cat['cat_id']; // or use the appropriate key
 							
-							?>
-					<div class="col-lg-4 col-md-6 col-sm-12" >
-                        <div class="listing-item-box">
-                            <div class="listing-thumbnail">
-                                <a href="<?php echo $my_global_variable;?>Category/<?php echo $row['cat_id'];?>" class="listing-photo">
-                                    <div class="tag"><?php echo $row['category_name'];?></div>
-                                    <img class="d-block w-100" src="img/cate/<?php echo $row['image'];?>" alt="listing-photo">
-                                    <div class="user">
-                                        <!--div class="avatar">
-                                            <img src="img/cate/<?php echo $row['image'];?>" alt="avatar" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="name">
-                                            <h5>Rx Vodro</h5>
-                                        </div-->
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="detail">
-                                <div class="top">
-                                    <h3 class="title">
-                                        <a href="<?php echo $my_global_variable;?>Category/<?php echo $row['cat_id'];?>"><?php echo $row['category_name'];?></a>
-                                    </h3>
-                                    <!--div class="location">
-                                        <a href="#"><i class="flaticon-pin"></i><?php //echo $row['street'];?>, <?php echo $row['city'];?>-<?php echo $row['postal_code'];?></a>
-                                    </div>
-                                    <p><?php //echo substr($row['description'], 0, 20);?>...</p-->
-                                </div>
-								<!--div style="padding-left: 25px;color:#008020">Category : <?php echo $catrow['category_name'];?></div>
-                                <div class="ratings">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>( 14 Reviews )</span>
-                                </div-->
-                            </div>
-                        </div>
-                    </div>
-					<?php } ?>
+							
+							if ($selected_letter && strtoupper($cat_name[0]) !== $selected_letter) continue;
+
+							echo '<a href="grid-fullwidth.php?category_id=' . urlencode($cat_id) . '" style="text-decoration:none;">
+								<span style="
+									display:inline-block;
+									border:1px solid #007bff;
+									background-color:#f0f8ff;
+									color:#007bff;
+									padding:8px 15px;
+									border-radius:20px;
+									font-size:14px;
+									white-space:nowrap;
+									transition:all 0.3s ease;
+								" onmouseover="this.style.backgroundColor=\'#007bff\'; this.style.color=\'white\';" onmouseout="this.style.backgroundColor=\'#f0f8ff\'; this.style.color=\'#007bff\';">'
+								. htmlspecialchars($cat_name) .
+								'</span></a>';
+						}
+
+						echo '</div>';
+
+						?>
+					
+					<?php //} ?>
                     <!--div class="col-lg-4 col-md-6 col-sm-12" >
                         <div class="listing-item-box">
                             <div class="listing-thumbnail">

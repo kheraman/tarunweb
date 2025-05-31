@@ -59,16 +59,27 @@ require_once('includes/config.php')
 <!-- Main header end -->
 <?php
 
-$catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];							
-							
-							$catresultname = mysqli_query($con,$catsqlname);	
-							$catrowname = mysqli_fetch_array($catresultname, MYSQLI_ASSOC);
+$get_cate_wise_data = callAPI('GET', 'https://localist360.com/api/business?category_id=' . $_GET["category_id"], false);
+
+$all_cate_wise_data = json_decode($get_cate_wise_data, true);
+usort($all_cate_wise_data, function ($a, $b) {
+    return strcmp($a['name'], $b['name']);
+});
+$count = count($all_cate_wise_data);
+//echo "Total records: $count";
+
 ?>
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
     <div class="container">
         <div class="breadcrumb-area">
-            <h1><?php echo $catrowname["category_name"];?></h1>
+            <h1><?php if (!empty($all_cate_wise_data)) {
+    echo $all_cate_wise_data[0]['data']['category'];
+}
+else
+	
+	{echo "No records found.";}
+?></h1>
             <!--ul class="breadcrumbs">
                 <li><a href="index.php">Home</a></li>
                 <li class="active"><?php //echo $catrowname["category_name"];?></li>
@@ -119,253 +130,36 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 					}
 					
 					$total_records_per_page = 9;
-					$offset = ($page_no-1) * $total_records_per_page;
+					$offset = ($page_no-1) * $total_records_per_page;					
 					
-					$result_count = mysqli_query($con,"SELECT COUNT(*) As total_records FROM listing_master where category_id=".$_GET["cat_id"]);
-					$total_records = mysqli_fetch_array($result_count);
-					$total_records = $total_records['total_records'];
+					//$result_count = mysqli_query($con,"SELECT COUNT(*) As total_records FROM listing_master where category_id=".$_GET["cat_id"]);
+					//$total_records = mysqli_fetch_array($result_count);
+					$total_records = $count;
 					$total_no_of_pages = ceil($total_records / $total_records_per_page);
 					
 					
-					$sql = "select * from listing_master where category_id = ".$_GET["cat_id"]."  ORDER BY name ASC LIMIT $offset, $total_records_per_page";							
-					$result = mysqli_query($con,$sql);							
-							
-							//die;
-					
-					while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-						{				
-							$catsql = "select * from category_master where cat_id=".$row['category_id'];							
-							
-							$catresult = mysqli_query($con,$catsql);	
-							$catrow = mysqli_fetch_array($catresult, MYSQLI_ASSOC);
-							
+					foreach ($all_cate_wise_data as $cat_data) {
 							?>
-					<div class="col-lg-4 col-md-6 col-sm-12" >
-                        <div class="listing-item-box">
-                            <!--div class="listing-thumbnail">
-                                <a href="listing-single.php?lid=827462" class="listing-photo">
-                                    <div class="tag"><?php //echo $catrow['category_name'];?></div>
-                                    <img class="d-block w-100" src="img/listing/img-3.png" alt="listing-photo">
-                                    <div class="user">
-                                        <div class="avatar">
-                                            <img src="img/avatar/avatar-1.png" alt="avatar" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="name">
-                                            <h5>Rx Vodro</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div-->
-                            <div class="detail">
-                                <div class="top">
-                                    <h3 class="title">
-                                        <a href="Listing/L-<?php echo $row['yid'];?>"><?php echo $row['name'];?></a>
-                                    </h3>
-                                    <div class="location">
-                                        <a href="#"><i class="flaticon-pin"></i><?php echo $row['street'];?>, <?php echo $row['city'];?>, <?php echo $row['state_iso'];?>-<?php echo $row['postal_code'];?></a>
-                                    </div>
-                                    <p><?php echo substr($row['description'], 0, 25);?>...</p>
-                                </div>
-								<div style="padding-left: 25px;color:#008020">Category : <?php echo $catrow['category_name'];?></div>
-                                <!--div class="ratings">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>( 14 Reviews )</span>
-                                </div-->
-                            </div>
-                        </div>
-                    </div>
+					<div class="col-lg-3 col-md-4 col-sm-6 col-12">
+						<div class="listing-item-box compact-listing">
+							<div class="detail">
+								<div class="top">
+									<h5 class="title">
+										<a href="<?php echo $my_global_variable;?>listing-single.php?lid=<?php echo $cat_data['yid'];?>"><?php echo $cat_data['name'];?></a>
+									</h5>
+									<div class="location">
+										<i class="flaticon-pin"></i><?php echo $cat_data['city'];?>, <?php echo $cat_data['country_iso'];?>-<?php echo $cat_data['postal_code'];?></a>
+									</div>
+									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+
+
 					<?php } ?>
-                    <!--div class="col-lg-4 col-md-6 col-sm-12" >
-                        <div class="listing-item-box">
-                            <div class="listing-thumbnail">
-                                <a href="listing-single.php" class="listing-photo">
-                                    <div class="tag">Restourant</div>
-                                    <img class="d-block w-100" src="img/listing/img-1.png" alt="listing-photo">
-                                    <div class="user">
-                                        <div class="avatar">
-                                            <img src="img/avatar/avatar-2.png" alt="avatar" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="name">
-                                            <h5>Antony</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="detail">
-                                <div class="top">
-                                    <h3 class="title">
-                                        <a href="listing-single.php">The Green Restourant</a>
-                                    </h3>
-                                    <div class="location">
-                                        <a href="#"><i class="flaticon-pin"></i>123 Kathal St. Tampa City,</a>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
-                                </div>
-                                <div class="ratings">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>( 254 Reviews )</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12" >
-                        <div class="listing-item-box">
-                            <div class="listing-thumbnail">
-                                <a href="listing-single.php" class="listing-photo">
-                                    <div class="tag">Eat & Drink</div>
-                                    <img class="d-block w-100" src="img/listing/img-5.png" alt="listing-photo">
-                                    <div class="user">
-                                        <div class="avatar">
-                                            <img src="img/avatar/avatar-3.png" alt="avatar" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="name">
-                                            <h5>Adnan Ta</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="detail">
-                                <div class="top">
-                                    <h3 class="title">
-                                        <a href="listing-single.php">Best Place For Drink</a>
-                                    </h3>
-                                    <div class="location">
-                                        <a href="#"><i class="flaticon-pin"></i>123 Kathal St. Tampa City,</a>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
-                                </div>
-                                <div class="ratings">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>( 254 Reviews )</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-					
-                    <div class="col-lg-4 col-md-6 col-sm-12" >
-                        <div class="listing-item-box">
-                            <div class="listing-thumbnail">
-                                <a href="listing-single.php" class="listing-photo">
-                                    <div class="tag">Event</div>
-                                    <img class="d-block w-100" src="img/listing/img-4.png" alt="listing-photo">
-                                    <div class="user">
-                                        <div class="avatar">
-                                            <img src="img/avatar/avatar-4.png" alt="avatar" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="name">
-                                            <h5>Kanty</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="detail">
-                                <div class="top">
-                                    <h3 class="title">
-                                        <a href="listing-single.php">My Parsonal Event</a>
-                                    </h3>
-                                    <div class="location">
-                                        <a href="#"><i class="flaticon-pin"></i>123 Kathal St. Tampa City,</a>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
-                                </div>
-                                <div class="ratings">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>( 254 Reviews )</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12" >
-                        <div class="listing-item-box">
-                            <div class="listing-thumbnail">
-                                <a href="listing-single.php" class="listing-photo">
-                                    <div class="tag">Hotels</div>
-                                    <img class="d-block w-100" src="img/listing/img-2.png" alt="listing-photo">
-                                    <div class="user">
-                                        <div class="avatar">
-                                            <img src="img/avatar/avatar-4.png" alt="avatar" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="name">
-                                            <h5>Kanty</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="detail">
-                                <div class="top">
-                                    <h3 class="title">
-                                        <a href="listing-single.php">The Hotel Alpha</a>
-                                    </h3>
-                                    <div class="location">
-                                        <a href="#"><i class="flaticon-pin"></i>123 Kathal St. Tampa City,</a>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
-                                </div>
-                                <div class="ratings">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>( 254 Reviews )</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12" >
-                        <div class="listing-item-box">
-                            <div class="listing-thumbnail">
-                                <a href="listing-single.php" class="listing-photo">
-                                    <div class="tag">Shops</div>
-                                    <img class="d-block w-100" src="img/listing/img-6.png" alt="listing-photo">
-                                    <div class="user">
-                                        <div class="avatar">
-                                            <img src="img/avatar/avatar-4.png" alt="avatar" class="img-fluid rounded-circle">
-                                        </div>
-                                        <div class="name">
-                                            <h5>Ai Mamun</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="detail">
-                                <div class="top">
-                                    <h3 class="title">
-                                        <a href="listing-single.php">Shop In City</a>
-                                    </h3>
-                                    <div class="location">
-                                        <a href="#"><i class="flaticon-pin"></i>123 Kathal St. Tampa City,</a>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
-                                </div>
-                                <div class="ratings">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <span>( 254 Reviews )</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div-->
+                   
                 <!-- Page navigation start -->
 				
 				<?php
@@ -378,7 +172,7 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
                         <ul class="pagination">
 						 
 						<li <?php if($page_no <= 1){ echo "class='disabled'"; } ?>>
-						<a <?php if($page_no > 1){ echo "href='Category/".$_GET["cat_id"]."/$previous_page'"; } ?>>Previous</a>
+						<a <?php if($page_no > 1){ echo "href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$previous_page'"; } ?>>Previous</a>
 						</li>
 						 
 						<?php
@@ -387,7 +181,7 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						}
@@ -398,40 +192,40 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						echo "<li><a>...</a></li>";
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$second_last'>$second_last</a></li>";
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$second_last'>$second_last</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
 						}
 						 
 						elseif($page_no > 4 && $page_no < $total_no_of_pages - 4) {
-						echo "<li><a href='Category/".$_GET["cat_id"]."/1'>1</a></li>";
-						echo "<li><a href='Category/".$_GET["cat_id"]."/2'>2</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/1'>1</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/2'>2</a></li>";
 						echo "<li><a>...</a></li>";
 						for ($counter = $page_no - $adjacents; $counter <= $page_no + $adjacents; $counter++) {
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						echo "<li><a>...</a></li>";
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$second_last'>$second_last</a></li>";
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$second_last'>$second_last</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$total_no_of_pages'>$total_no_of_pages</a></li>";
 						}
 						 
 						else {
-						echo "<li><a href='Category/".$_GET["cat_id"]."/1'>1</a></li>";
-						echo "<li><a href='Category/".$_GET["cat_id"]."/2'>2</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/1'>1</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/2'>2</a></li>";
 						echo "<li><a>...</a></li>";
 						 
 						for ($counter = $total_no_of_pages - 6; $counter <= $total_no_of_pages; $counter++) {
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$counter'>$counter</a></li>";
 						}
 						}
 						}
@@ -439,10 +233,10 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 						?>
 						 
 						<li <?php if($page_no >= $total_no_of_pages){ echo "class='disabled'"; } ?>>
-						<a <?php if($page_no < $total_no_of_pages) { echo "href='Category/".$_GET["cat_id"]."/$next_page'"; } ?>>Next</a>
+						<a <?php if($page_no < $total_no_of_pages) { echo "href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$next_page'"; } ?>>Next</a>
 						</li>
 						<?php if($page_no < $total_no_of_pages){
-						echo "<li><a href='Category/".$_GET["cat_id"]."/$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$total_no_of_pages'>Last &rsaquo;&rsaquo;</a></li>";
 						} ?>
 						</ul>
                     </nav>

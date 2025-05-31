@@ -116,6 +116,20 @@
     <!-- Start How it Works Section -->
 
 <?php
+
+
+		/*echo "<pre>";	
+					print($cate_list['0']['category_name']);	
+					echo "</pre>";
+					//die;
+		 	 	/*			
+			[file_name] => woops-new-pink-logo.png
+					[category_name] => Logo
+                            [category] => Logo */
+
+
+
+
 $result_count = mysqli_query($con,"SELECT A.category_id, COUNT(*) AS record_count, B.category_name FROM listing_master A JOIN category_master B ON A.category_id = B.cat_id WHERE A.category_id in (1,3,15,17,18) GROUP BY A.category_id, B.category_name");
 					$total_records = mysqli_fetch_array($result_count);
 					?>
@@ -124,12 +138,15 @@ $result_count = mysqli_query($con,"SELECT A.category_id, COUNT(*) AS record_coun
     <div class="container">
         <!-- Main title -->
         <div class="main-title text-center">
-            <h1>Featured Categories</h1>
-            <p>Our top listed categories..</p>
+            <h1>Check our listed categories..</h1>
+            <p>&nbsp;</p>
         </div>
         <div class="row">
-            <div class="col-lg-5 col-md-12 col-sm-12 col-pad">
-                <div class="category">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row">
+                    
+					<!--
+					<div class="category">
                     <div class="category_bg_box category_long_bg cat-4-bg">
                         <div class="category-overlay">
                             <div class="icon">
@@ -144,82 +161,42 @@ $result_count = mysqli_query($con,"SELECT A.category_id, COUNT(*) AS record_coun
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-7 col-md-12 col-sm-12">
-                <div class="row">
-                    <div class="col-sm-6 col-pad">
+					-->
+					
+					<?php
+					for($i=0;$i<8;$i++)
+					{
+					?>
+					<div class="col-sm-3 col-pad">
                         <div class="category">
-                            <div class="category_bg_box cat-1-bg">
+                            <div class="category_bg_box cat-1-bg" style="background: linear-gradient(135deg, #FFEB99, #FFF4B3, #FFEB99);">
                                 <div class="category-overlay">
-                                    <div class="icon">
-                                        <i class="flaticon-shop"></i>
-                                    </div>
+                                    
                                     <div class="category-content">
                                         <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/15">Restaurants</a>
+                                            <a href="<?php echo $my_global_variable;?>Category/<?php echo $all_cate_list[$i]['cat_id']?>"><?php echo $all_cate_list[$i]['name']?></a>
                                         </h3>
-                                        <h4 class="category-subtitle">40 Listings</h4>
+                                        <!--h4 class="category-subtitle">40 Listings</h4-->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-pad">
-                        <div class="category">
-                            <div class="category_bg_box cat-2-bg">
-                                <div class="category-overlay">
-                                    <div class="icon">
-                                        <i class="flaticon-hotel"></i>
-                                    </div>
-                                    <div class="category-content">
-                                        <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/18">Fitness & Instruction</a>
-                                        </h3>
-                                        <h4 class="category-subtitle">32 Listings</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-pad">
-                        <div class="category">
-                            <div class="category_bg_box cat-5-bg">
-                                <div class="category-overlay">
-                                    <div class="icon">
-                                        <i class="flaticon-cook"></i>
-                                    </div>
-                                    <div class="category-content">
-                                        <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/3">Automotive</a>
-                                        </h3>
-                                        <h4 class="category-subtitle">24 Listings</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-pad">
-                        <div class="category">
-                            <div class="category_bg_box cat-3-bg">
-                                <div class="category-overlay">
-                                    <div class="icon">
-                                        <i class="flaticon-gym"></i>
-                                    </div>
-                                    <div class="category-content">
-                                        <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/1">Sports & Recreation</a>
-                                        </h3>
-                                        <h4 class="category-subtitle">48 Listings</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
+					
                 </div>
             </div>
+			
+			
+			
         </div>
-    </div>
+		<div style="text-align:right; margin-top:10px;">
+  <a href="<?php echo $my_global_variable;?>allcategories.php" style="font-weight:bold; color:#007bff; text-decoration:none; font-size:16px;">See All Categories..</a>
 </div>
+    </div>
+	
+</div>
+
 <!-- Categories end -->
 
 <?php /*  ?>
