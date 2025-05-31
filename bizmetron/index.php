@@ -77,44 +77,45 @@ function onsubmitform()
                     <div class="tabs-content">
                         <!--Tab-->
                         <div class="tab active-tab" id="tab1">
-                            <div class="listing-search-form">
+                            <!--div class="listing-search-form">
                                 <form method="post" action="/categorylisting" enctype="multipart/form-data" onsubmit='return onsubmitform();'>
                                     <div class="row">
                                         <div class="form-group col-lg-4 col-md-6 col-sm-12">
                                             <input type="text" name="searchtext" id="searchtext" placeholder="What are you looking for?" required>
                                         </div>
-                                        <!-- Form Group -->
+                                        <!-- Form Group >
                                         <div class="form-group col-lg-3 col-md-6 col-sm-12 location">
                                             <input type="text" name="location" id="location" placeholder="Location">
                                             <span class="icon flaticon-placeholder" data-text="Type and hit enter"></span>
                                         </div>
 										<?php
-										$sql = "select * from category_master";							
-										$result = mysqli_query($con,$sql);							
+										//$sql = "select * from category_master";							
+										//$result = mysqli_query($con,$sql);							
 										
 													//die;
 													
 													?>
-                                        <!-- Form Group -->
+                                        <!-- Form Group >
                                         <div class="form-group col-lg-3 col-md-6 col-sm-12">
                                             <select name="cid" class="chosen-select">
 												<option value="0">All Categories</option>
                                                 <?php
+												/*
 												while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 												{		
 												?>
 														<option value="<?php echo $row["cat_id"];?>"><?php echo $row["category_name"];?></option>
-                                                <?php } ?>
+                                                <?php } */ ?>
                                             </select>
                                         </div>
 
-                                        <!-- Form Group -->
+                                        <!-- Form Group >
                                         <div class="form-group col-lg-2 col-md-6 col-sm-12 text-right">
                                             <input type="submit" name="submit" style="background-color: #ff007a;border-color: #ff007a;    color: #ffffff; font-weight: bold; font-size: 18px;">
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div-->
                         </div>
 
                         <!--Tab>
@@ -269,102 +270,34 @@ function onsubmitform()
             </div>
 
             <div class="row">
+			<?php
+					for($i=0;$i<6;$i++)
+					{
+					?>
                 <!-- Feature Block -->
                 <div class="feature-block col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
+                    <div class="inner-box" >
                         <figure class="image"><img src="images/cate/Hotels_Travel.jpg" alt=""></figure>
                         <div class="overlay-box">
                             <div class="content">
-                                <span class="icon-box flaticon-musical-note"></span>
-                                <h5>Hotel & Travel</h5>
-                                <span class="locations">07 Locations</span>
-                                <a href="<?php echo $my_global_variable;?>/Category/10" class="overlay-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                <span class="icon-box flaticon-star"></span>
+                                <h5><a style="color:white;" href="<?php echo $my_global_variable;?>categorylisting.php?category_id=<?php echo $all_cate_list[$i]['cat_id']?>"><?php echo $all_cate_list[$i]['name'];?></a></h5>
 
-                <!-- Feature Block -->
-                <div class="feature-block col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <figure class="image"><img src="images/cate/Monument_Maker.jpg" alt=""></figure>
-                        <div class="overlay-box">
-                            <div class="content">
-                                <span class="icon-box flaticon-hotel-bell"></span>
-                                <h5>Monument Maker</h5>
-                                <span class="locations">58 Locations</span>
-                                <a href="<?php echo $my_global_variable;?>/Category/22" class="overlay-link"></a>
+                               
+                                
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Feature Block -->
-                <div class="feature-block col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <figure class="image"><img src="images/cate/Contractors.jpg" alt=""></figure>
-                        <div class="overlay-box">
-                            <div class="content">
-                                <span class="icon-box flaticon-weightlifting"></span>
-                                <h5>Contractors</h5>
-                                <span class="locations">43 Locations</span>
-                                <a href="<?php echo $my_global_variable;?>/Category/19" class="overlay-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Feature Block -->
-                <div class="feature-block col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <figure class="image"><img src="images/cate/Home_Services.jpg" alt=""></figure>
-                        <div class="overlay-box">
-                            <div class="content">
-                                <span class="icon-box flaticon-museum"></span>
-                                <h5>Home Services</h5>
-                                <span class="locations">13 Locations</span>
-                                <a href="<?php echo $my_global_variable;?>/Category/9" class="overlay-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Feature Block -->
-                <div class="feature-block col-lg-4 col-md-6 col-sm-12">
-                    <div class="inner-box">
-                        <figure class="image"><img src="images/cate/Restaurants.jpg" alt=""></figure>
-                        <div class="overlay-box">
-                            <div class="content">
-                                <span class="icon-box flaticon-bed"></span>
-                                <h5>Restaurants</h5>
-                                <span class="locations">129 Locations</span>
-                                <a href="<?php echo $my_global_variable;?>/Category/15" class="overlay-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Feature Block -->
-                <div class="feature-block col-lg-4 col-md-12 col-sm-12">
-                    <div class="inner-box">
-                        <figure class="image"><img src="images/cate/Food.jpg" alt=""></figure>
-                        <div class="overlay-box">
-                            <div class="content">
-                                <span class="icon-box flaticon-tent"></span>
-                                <h5>Food</h5>
-                                <span class="locations">94 Locations</span>
-                                <a href="<?php echo $my_global_variable;?>/Category/17" class="overlay-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<?php } ?>
             </div>
+
         </div>
     </section>
     <!-- End Features Section -->
 
 	
-    <!-- Listing Section -->
+    <!-- Listing Section >
     <section class="listing-section style-two">
         <div class="container-fluid">
             <div class="sec-title text-center">
@@ -379,6 +312,7 @@ function onsubmitform()
                     
 					<?php
 				//echo "test";
+				/*
 				$sql = "select * from listing_master as a left join category_master as b on a.category_id = b.cat_id order by a.id desc LIMIT 196,10";							
 					$result = mysqli_query($con,$sql);							
 							
@@ -609,7 +543,7 @@ function onsubmitform()
             </div>
         </div>
     </section>
-    <!-- End Listing Section -->
+    <!-- End Listing Section --><?php */?>
 
     <!-- How It Works >
     <section class="how-it-works">
