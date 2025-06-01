@@ -58,7 +58,7 @@
 									<!--span><?php //echo $row['street'];?>, <?php //echo $row['city'];?>-<?php //echo $row['postal_code'];?></span-->
 									<!--p><?php //	echo SUBSTR($row['description'], 0,40);?>...</p>
 									<div class="closed">Closed Now</div-->
-									<div><a href="category.php?category_id=<?php echo $all_cate_list[$i]['cat_id']?>"><h4><?php echo $all_cate_list[$i]['name'];?></h4></a></div>
+									<div><a href="categorylistings.php?category_id=<?php echo $all_cate_list[$i]['cat_id']?>"><h4><?php echo $all_cate_list[$i]['name'];?></h4></a></div>
 									
 								</div>
 								<!--div class="tic-text">+1 <?php //echo $row['phone'];?></div-->
