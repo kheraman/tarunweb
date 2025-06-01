@@ -77,7 +77,7 @@ require_once('includes/config.php')
 							
 							if ($selected_letter && strtoupper($cat_name[0]) !== $selected_letter) continue;
 
-							echo '<a href="grid-fullwidth.php?category_id=' . urlencode($cat_id) . '" style="text-decoration:none;">
+							echo '<a href="categorylisting.php?category_id=' . urlencode($cat_id) . '" style="text-decoration:none;">
 							<span style="
 								display:inline-block;
 								border: 1px solid #f25620;
