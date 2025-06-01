@@ -1,15 +1,15 @@
 <header class="header-section">
         <div class="container-fluid">
             <div class="logo">
-                <a href="./index"><img src="img/logo.png" alt=""></a>
+                <a href="index.php"><img src="img/logo.png" alt=""></a>
             </div>
             <nav class="main-menu mobile-menu">
                 <ul>
-                    <li class="active"><a href="/index">Home</a></li>                    
-                    <li><a href="/category">Categories</a></li>
-					<li><a href="/aboutus">About Us</a></li>
+                    <li class="active"><a href="index.php">Home</a></li>                    
+                    <li><a href="category.php">Categories</a></li>
+					<li><a href="aboutus.php">About Us</a></li>
 					
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
             </nav>
             <!--div class="header-right">

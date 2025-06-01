@@ -188,9 +188,22 @@
 				<div class="col-lg-12">
 					<div class="section-title">
                             <h2>Explore All Categories!</h2>
-                            <p>Explore some of the best places in the world</p>
+                            
                     </div>
 				</div>		
+				<div style="margin-bottom:20px; text-align:center;">
+				  Select the Category starting with:
+  <?php
+    $selected = isset($_GET['letter']) ? $_GET['letter'] : '';
+    foreach (range('A', 'Z') as $char) {
+        $style = 'margin:5px; font-weight:bold; color:#33c4eb; text-decoration:none;';
+        if ($char === $selected) {
+            $style .= ' background-color:#33c4eb; color:white; padding:5px 10px; border-radius:4px;';
+        }
+        echo '<a href="category.php?letter=' . $char . '" style="' . $style . '">' . $char . '</a>';
+    }
+  ?>
+</div>
                 <div class="col-lg-12">
                     <div class="row">
 					
@@ -203,51 +216,36 @@
                                 </select>
                             </form>
                         </div-->
-						<?php
-					
-							/*Pagination
-							if (isset($_GET['page_no']) && $_GET['page_no']!="") {
-							$page_no = $_GET['page_no'];
-							} 
-							else 
-							{
-								$page_no = 1;
-							}
-							
-							$total_records_per_page = 9;
-							$offset = ($page_no-1) * $total_records_per_page;
-							
-							$result_count = mysqli_query($con,"SELECT COUNT(*) As total_records FROM listing_master ");
-							$total_records = mysqli_fetch_array($result_count);
-							$total_records = $total_records['total_records'];
-							$total_no_of_pages = ceil($total_records / $total_records_per_page);
-							*/
-							
-							$sql = "select * from category_master order by category_name asc";							
-							$result = mysqli_query($con,$sql);							
-									
-									//die;
-							
-							while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-								{				
-							
-							?>
-                        <div class="col-lg-4 col-sm-6">
-                            <a class="arrange-items" href="Category/<?php echo $row['cat_id'];?>">
-                                <div class="arrange-pic">
-                                    <img src="img/cate/<?php echo $row['image'];?>" alt="">
-                                    <!--div class="rating">4.9</div-->
-                                    <div class="tic-text"><?php echo $row['category_name'];?></div>
-                                </div>
-                                <div class="arrange-text">
-                                    <!--h5>New Place Restaurant</h5-->
-                                    <span style="font-size:22px;"><?php echo $row['category_name'];?></span>
-                                    <!--p>Fusce urna quam, euismod sit</p>
-                                    <div class="open tomorrow">Opens Tomorow at 10am</div-->
-                                </div>
-                            </a>
-                        </div>
-						<?php } ?>
+						
+					<?php
+    $selected_letter = isset($_GET['letter']) ? strtoupper($_GET['letter']) : null;
+
+    echo '<div style="display:flex; flex-wrap:wrap; gap:10px;padding-bottom:50px;">';
+
+    foreach ($all_cate_list as $cat) {
+        $cat_name = $cat['name'];
+        $cat_id = $cat['cat_id'];
+
+        if ($selected_letter && strtoupper($cat_name[0]) !== $selected_letter) continue;
+
+        echo '<a href="categorylistings.php?category_id=' . urlencode($cat_id) . '" style="text-decoration:none;">
+            <span style="
+                display:inline-block;
+                border: 1px solid #33c4eb;
+                background-color: #e6f9fd;
+                color: #33c4eb;
+                padding:8px 15px;
+                border-radius:20px;
+                font-size:14px;
+                white-space:nowrap;
+                transition:all 0.3s ease;
+            " onmouseover="this.style.backgroundColor=\'#33c4eb\'; this.style.color=\'white\';" onmouseout="this.style.backgroundColor=\'#e6f9fd\'; this.style.color=\'#33c4eb\';">'
+            . htmlspecialchars($cat_name) .
+            '</span></a>';
+    }
+
+    echo '</div>';
+  ?>
                         <!--div class="col-lg-4 col-sm-6">
                             <a class="arrange-items" href="single-listing.php">
                                 <div class="arrange-pic">

@@ -4,12 +4,18 @@
 <?php 
 error_reporting(0);
 include("header.php");?>
+
 <?php
 
-$catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];							
-							
-							$catresultname = mysqli_query($con,$catsqlname);	
-							$catrowname = mysqli_fetch_array($catresultname, MYSQLI_ASSOC);
+$get_cate_wise_data = callAPI('GET', 'https://localist360.com/api/business?category_id=' . $_GET["category_id"], false);
+
+$all_cate_wise_data = json_decode($get_cate_wise_data, true);
+usort($all_cate_wise_data, function ($a, $b) {
+    return strcmp($a['name'], $b['name']);
+});
+$count = count($all_cate_wise_data);
+//echo "Total records: $count";
+
 ?>
 
 <body>
@@ -189,7 +195,13 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
 					
 				<div class="col-lg-12">
 					<div class="section-title">
-                            <h2 style="color: #3555D6;">Category Name: <?php echo $catrowname["category_name"];?></h2>
+                            <h2><?php if (!empty($all_cate_wise_data)) {
+    echo "Category Name : ".$all_cate_wise_data[0]['data']['category'];
+}
+else
+	
+	{echo "No records found.";}
+?></h2>
 							<!--h2>Explore All Categories!</h2>
                             <p>Explore some of the best places in the world</p-->
                     </div>
@@ -208,66 +220,29 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
                         </div-->
 						
 						<?php
-					if (isset($_GET['searchtext']) && $_GET['searchtext']!="") 
-					{
-						$where = " and name like '%".$_GET['searchtext']."%'";
-					} 
-					else 
-					{
-						$where = "";
-					}
+				
 					
-					/*Pagination*/
-					if (isset($_GET['page_no']) && $_GET['page_no']!="") {
-					$page_no = $_GET['page_no'];
-					} 
-					else 
-					{
-						$page_no = 1;
-					}
-					
-					$total_records_per_page = 15;
-					$offset = ($page_no-1) * $total_records_per_page;
-					
-					//echo "SELECT COUNT(*) As total_records FROM listing_master where category_id=".$_GET["cat_id"]." ".$where;
-					$result_count = mysqli_query($con,"SELECT COUNT(*) As total_records FROM listing_master where category_id=".$_GET["cat_id"]." ".$where);
-					$total_records = mysqli_fetch_array($result_count);
-					$total_records = $total_records['total_records'];
-					$total_no_of_pages = ceil($total_records / $total_records_per_page);
-					
-					
-					
-					$sql = "select * from listing_master where category_id = ".$_GET["cat_id"]." ".$where." order by name asc LIMIT $offset, $total_records_per_page";							
-					$result = mysqli_query($con,$sql);							
-							
-							//die;
-					
-					while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-						{				
-							$catsql = "select * from category_master where cat_id=".$row['category_id'];							
-							
-							$catresult = mysqli_query($con,$catsql);	
-							$catrow = mysqli_fetch_array($catresult, MYSQLI_ASSOC);
-							
+					foreach ($all_cate_wise_data as $cat_data) {
 							?>
-                        <div class="col-lg-4">
-							<div class="trend-item">
-								<!--div class="trend-pic">
-									<img src="img/cate/<?php //echo $catrow["image"];?>" alt="">
-									<div class="rating">4.9</div>
-								</div-->
-								<div class="trend-text">
-									<h4><?php echo $row["name"];?></h4>
-									<span><?php echo $row['street'];?>, <?php echo $row['city'];?>, <?php echo $row['state_iso'];?>-<?php echo $row['postal_code'];?></span>
-									<p><?php echo SUBSTR($row['description'], 0,40);?>...</p>
-									<!--div class="closed">Closed Now</div-->
-									<div class="tic-text">Phone : +1 <?php echo $row['phone'];?></div>
-									<div class="open"><a href="Listing/L-<?php echo $row['yid'];?>">Know more</a></div>
-									
-								</div>
-								
+						
+                        <div class="col-lg-4" style="margin-bottom: 20px;">
+						  <div style="
+							border: 1px solid #33c4eb;
+							border-radius: 12px;
+							padding: 20px;
+							box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+							background-color: #f9f9f9;
+						  ">
+							<h5><?php echo $cat_data["name"]; ?></h5>
+							<span><?php echo $cat_data['street']; ?>, <?php echo $cat_data['city']; ?>, <?php echo $cat_data['state_iso']; ?>-<?php echo $cat_data['postal_code']; ?></span>
+
+							<div class="open" style="margin-top: 10px;">
+							  <a href="single-listing.php?lid=<?php echo $cat_data['yid']; ?>" style="color: #33c4eb; font-weight: bold;">Know more</a>
 							</div>
+						  </div>
 						</div>
+
+
 						<?php } ?>
                         <!--div class="col-lg-4 col-sm-6">
                             <a class="arrange-items" href="single-listing.php">

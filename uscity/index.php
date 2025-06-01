@@ -13,14 +13,7 @@
     <?php include("header1.php");?>
 
     <!-- Header End -->
-<?php
-$catsqlname = "select * from category_master";							
-							
-							$catresultname = mysqli_query($con,$catsqlname);	
-	
 
-	
-?>
     <!-- Hero Section Begin -->
     <section class="hero-section set-bg" data-setbg="img/hero-bg.jpg">
         <div class="container">
@@ -29,32 +22,7 @@ $catsqlname = "select * from category_master";
                     <div class="hero-text">
                         <img src="img/placeholder.png" alt="">
                         <h1>US CITY</h1>
-                        <form action="categorylistings.php" class="filter-search">
-                            <div class="category-search">
-                                <h5>Search Category</h5>
-                                <select class="ca-search" name="cat_id">
-                                    <?php
-									while ($catrowname = mysqli_fetch_array($catresultname, MYSQLI_ASSOC))
-									{
-									?>									
-										<option value="<?php echo $catrowname["cat_id"];?>"><?php echo $catrowname["category_name"];?></option>                                    
-									<?php } ?>
-                                </select>
-                            </div>
-                            <div class="location-search">
-                                <h5>Enter your keyword</h5>
-									<input type="text" name="searchtext" style="width: calc(100% - 20px);
-	font-size: 16px;
-	color: #fff;
-	background: transparent;
-	height: 50px;
-	line-height: 46px;
-	border-radius: 0;
-	border: solid 1px #e8e8e8;
-	padding-left: 31px;">
-                            </div>
-                            <button type="submit">Search Now</button>
-                        </form>
+                        
                     </div>
                 </div>
             </div>
@@ -75,32 +43,25 @@ $catsqlname = "select * from category_master";
             </div>
             <div class="row">
                 
-				<?php
-				//echo "test";
-				$sql = "select * from listing_master as a left join category_master as b on a.category_id = b.cat_id order by a.id desc LIMIT 212,6";							
-					$result = mysqli_query($con,$sql);							
-							
-							//die;
-					
-					while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-						{				
-						
-						?>
-						<div class="col-lg-6">
+				  <?php
+					for($i=0;$i<6;$i++)
+					{
+					?>
+						<div class="col-lg-4">
 							<div class="trend-item">
 								<div class="trend-pic">
-									<img src="img/cate/<?php echo $row["image"];?>" alt="">
-									<div class="rating">4.9</div>
+									<img src="img/categories/cat-2.jpg" alt="">
+									<!--div class="rating">4.9</div-->
 								</div>
 								<div class="trend-text">
-									<h4><?php echo $row["name"];?></h4>
-									<span><?php echo $row['street'];?>, <?php echo $row['city'];?>-<?php echo $row['postal_code'];?></span>
-									<p><?php echo SUBSTR($row['description'], 0,40);?>...</p>
-									<!--div class="closed">Closed Now</div-->
-									<div class="open"><a href="Listing/L-<?php echo $row['yid'];?>">Know more</a></div>
+									
+									<!--span><?php //echo $row['street'];?>, <?php //echo $row['city'];?>-<?php //echo $row['postal_code'];?></span-->
+									<!--p><?php //	echo SUBSTR($row['description'], 0,40);?>...</p>
+									<div class="closed">Closed Now</div-->
+									<div><a href="category.php?category_id=<?php echo $all_cate_list[$i]['cat_id']?>"><h4><?php echo $all_cate_list[$i]['name'];?></h4></a></div>
 									
 								</div>
-								<div class="tic-text">+1 <?php echo $row['phone'];?></div>
+								<!--div class="tic-text">+1 <?php //echo $row['phone'];?></div-->
 							</div>
 						</div>
 						<?php } ?>
@@ -109,7 +70,7 @@ $catsqlname = "select * from category_master";
     </section>
     <!-- Trending Restaurant Section End -->
 
-    <!-- Categories Section Begin -->
+    <!-- Categories Section Begin >
     <section class="categories-section spad">
         <div class="container-fluid">	
 			<div class="categories-left">
