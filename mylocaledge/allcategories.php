@@ -50,34 +50,51 @@ require_once('includes/config.php')
                 <span class="divider"></span>
                 <div class="text">Explore some of the best tips from around the city from our partners and friends.</div>
             </div>
+			<div style="margin-bottom:20px; text-align:center;">
+  Select the Category starting with:
+  <?php
+    $selected = isset($_GET['letter']) ? $_GET['letter'] : '';
+    foreach (range('A', 'Z') as $char) {
+        $style = 'margin:5px; font-weight:bold; color:#f25620; text-decoration:none;';
+        if ($char === $selected) {
+            $style .= ' background-color:#f25620; color:white; padding:5px 10px; border-radius:4px;';
+        }
+        echo '<a href="allcategories.php?letter=' . $char . '" style="' . $style . '">' . $char . '</a>';
+    }
+  ?>
+</div>
 			<div class="row">
-			<?php
-			 $sql = "select * from category_master order by category_name asc";							
-					$result = mysqli_query($con,$sql);							
-							
-							//die;
+			 <?php
 			
-					while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-						{				
+			$selected_letter = isset($_GET['letter']) ? strtoupper($_GET['letter']) : null;
+			
+			 echo '<div style="display:flex; flex-wrap:wrap; gap:10px;padding-bottom:50px;">';
+
+						foreach ($all_cate_list as $cat) {
+							$cat_name = $cat['name'];
+							$cat_id = $cat['cat_id']; // or use the appropriate key
 							
-							?>
-            
-                <!-- Feature Block -->
-                <div class="feature-block col-lg-4 col-md-4 col-sm-4">
-                    <div class="inner-box">
-                        <figure class="image"><img src="images/cate/<?php echo $row['image'];?>" alt=""></figure>
-                        <div class="overlay-box">
-                            <div class="content">
-                                <!--span class="icon-box flaticon-musical-note"></span-->
-                                <h5><?php echo $row['category_name'];?></h5>
-                                <!--span class="locations">07 Locations</span-->
-                                <a href="<?php echo $my_global_variable;?>Category/<?php echo $row['cat_id'];?>" class="overlay-link"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				<?php //$c++;  
-				} 	?>
+							
+							if ($selected_letter && strtoupper($cat_name[0]) !== $selected_letter) continue;
+
+							echo '<a href="grid-fullwidth.php?category_id=' . urlencode($cat_id) . '" style="text-decoration:none;">
+							<span style="
+								display:inline-block;
+								border: 1px solid #f25620;
+								background-color: #ffe5d6;
+								color: #f25620;
+								padding:8px 15px;
+								border-radius:20px;
+								font-size:14px;
+								white-space:nowrap;
+								transition:all 0.3s ease;
+							" onmouseover="this.style.backgroundColor=\'#f25620\'; this.style.color=\'white\';" onmouseout="this.style.backgroundColor=\'#ffe5d6\'; this.style.color=\'#f25620\';">'
+							. htmlspecialchars($cat_name) .
+							'</span></a>';
+
+						}
+
+						echo '</div>';?>
                 <!-- Feature Block >
                 <div class="feature-block col-lg-3 col-md-6 col-sm-12">
                     <div class="inner-box">

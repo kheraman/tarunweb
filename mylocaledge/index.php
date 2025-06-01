@@ -69,7 +69,7 @@ require_once('includes/config.php');
                         <li class="tab-btn" data-tab="#tab4">Real Estate</li>
                         <li class="tab-btn" data-tab="#tab5">Cars</li>
                     </ul-->
-
+					<?php /* ?>
                     <div class="tabs-content">
                         <!--Tab-->
                         <div class="tab active-tab" id="tab1">
@@ -249,6 +249,7 @@ require_once('includes/config.php');
                             </div>
                         </div-->
                     </div>
+					<?php */ ?>
                 </div>
             </div>
         </div>
@@ -267,28 +268,18 @@ require_once('includes/config.php');
             <div class="row">
                 <!-- Feature Block -->
                 <?php
-							$numbers = range(1, 21);
-							shuffle($numbers);
-							$numbers = array_slice($numbers, 0, 6);
-							//print_r($numbers);
-						
-							$sql = "select * from category_master where cat_id in (".$numbers[0].",".$numbers[1].",".$numbers[2].",".$numbers[3].",".$numbers[4].",".$numbers[5].")";							
-							$result = mysqli_query($con,$sql);							
-									
-									//die;
-							
-							while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-								{	
-							?>
+					for($i=0;$i<6;$i++)
+					{
+					?>
 								<div class="feature-block col-lg-4 col-md-6 col-sm-12">
 									<div class="inner-box">
-										<figure class="image"><img src="images/cate/<?php echo $row["image"];?>" alt=""></figure>
+										<figure class="image"><img src="images/cate/Event_Planning_Services.jpg" alt=""></figure>
 										<div class="overlay-box">
 											<div class="content">
-												<span class="icon-box flaticon-musical-note"></span>
+												<span class="icon-box flaticon-star"></span>
 												<h5><?php echo $row["category_name"];?></h5>
-												<span class="locations">07 Locations</span>
-												<a href="<?php echo $my_global_variable;?>Category/<?php echo $row['cat_id'];?>" class="overlay-link"></a>
+												<!--span class="locations">07 Locations</span-->
+												 <a style="color:#ff9966;" href="<?php echo $my_global_variable;?>categorylisting.php?category_id=<?php echo $all_cate_list[$i]['cat_id']?>"><?php echo $all_cate_list[$i]['name'];?></a>
 											</div>
 										</div>
 									</div>
@@ -300,7 +291,7 @@ require_once('includes/config.php');
     </section>
     <!-- End Features Section -->
 
-	
+	<?php /* ?>
     <!-- Listing Section -->
     <section class="listing-section style-two">
         <div class="container-fluid">
@@ -547,7 +538,7 @@ require_once('includes/config.php');
         </div>
     </section>
     <!-- End Listing Section -->
-
+<?php */ ?>
     <!-- How It Works >
     <section class="how-it-works">
         <div class="auto-container">
