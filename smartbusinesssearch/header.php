@@ -98,7 +98,7 @@ else
 
 <head>
     <title><?php //echo $meta_title;?></title>
-	<base href="https://smartbusinesssearch.com/">
+	
 	<meta name="description" content="<?php //echo $meta_desc;?>">
 	<meta name="keywords" content="<?php //echo $meta_keywords;?>">
 	
@@ -172,7 +172,7 @@ else
                             <i class="fa fa-home" style="font-size:18px"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/index">Home</a></li>
+                            <li><a class="dropdown-item" href="index.php">Home</a></li>
                             <!--li><a class="dropdown-item" href="index-2.html">Index 02</a></li>
                             <li><a class="dropdown-item" href="index-3.html">Index 03</a></li>
                             <li><a class="dropdown-item" href="index-4.html">Index 04</a></li>
@@ -196,7 +196,7 @@ else
                             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Categories</a>
                                 <ul class="dropdown-menu">
                                     
-                                    <li><a class="dropdown-item" href="/allcategories">All</a></li>
+                                    <li><a class="dropdown-item" href="allcategories.php">All</a></li>
 									<!--li><a class="dropdown-item" href="grid-sidebar.html">Listing Sidebar</a></li>
                                     <li><a class="dropdown-item" href="grid-sidebar-map.html">Listing Sidebar Map</a></li>
                                     <li><a class="dropdown-item" href="fullwidth-map.html">Listing Fullwidth Map</a></li-->
@@ -280,7 +280,7 @@ else
                             Contact
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink7">
-                            <li><a class="dropdown-item" href="/contact">Contact Us</a></li>
+                            <li><a class="dropdown-item" href="contact.php">Contact Us</a></li>
                             
                         </ul>
                     </li>

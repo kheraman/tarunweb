@@ -91,93 +91,41 @@ require_once('includes/config.php');
             <p>Recent additions and updates on SmartBusinessSearch</p>
         </div>
         <div class="row">
-            <div class="col-lg-5 col-md-12 col-sm-12 col-pad">
-                <div class="category">
-                    <div class="category_bg_box category_long_bg cat-4-bg">
-                        <div class="category-overlay">
-                            <div class="icon">
-                                <i class="flaticon-guitar"></i>
-                            </div>
-                            <div class="category-content">
-                                <h3 class="category-title">
-                                    <a href="<?php echo $my_global_variable;?>Category/12">Pets</a>
-                                </h3>
-                                <h4 class="category-subtitle">52 Listings</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-7 col-md-12 col-sm-12">
+            
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="row">
-                    <div class="col-sm-6 col-pad">
-                        <div class="category">
-                            <div class="category_bg_box cat-1-bg">
-                                <div class="category-overlay">
-                                    <div class="icon">
-                                        <i class="flaticon-shop"></i>
-                                    </div>
-                                    <div class="category-content">
-                                        <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/9">Home Services</a>
-                                        </h3>
-                                        <h4 class="category-subtitle">40 Listings</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-pad">
-                        <div class="category">
-                            <div class="category_bg_box cat-2-bg">
-                                <div class="category-overlay">
-                                    <div class="icon">
-                                        <i class="flaticon-hotel"></i>
-                                    </div>
-                                    <div class="category-content">
-                                        <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/14">Real Estate</a>
-                                        </h3>
-                                        <h4 class="category-subtitle">32 Listings</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-pad">
-                        <div class="category">
-                            <div class="category_bg_box cat-5-bg">
-                                <div class="category-overlay">
-                                    <div class="icon">
-                                        <i class="flaticon-cook"></i>
-                                    </div>
-                                    <div class="category-content">
-                                        <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/23">Military Recruiting office</a>
-                                        </h3>
-                                        <h4 class="category-subtitle">24 Listings</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-pad">
-                        <div class="category">
-                            <div class="category_bg_box cat-3-bg">
-                                <div class="category-overlay">
-                                    <div class="icon">
-                                        <i class="flaticon-gym"></i>
-                                    </div>
-                                    <div class="category-content">
-                                        <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/20">Public Services Government</a>
-                                        </h3>
-                                        <h4 class="category-subtitle">48 Listings</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+					for($i=0;$i<8;$i++)
+					{
+					?>
+								<div class="feature-block col-lg-3 col-md-6 col-sm-12" style="padding: 15px;">
+									<div class="inner-box" style="
+										background: linear-gradient(135deg, rgba(51,196,235,0.95), rgba(160,233,247,0.95)), url('images/bg-pattern.png');
+										background-size: cover;
+										background-position: center;
+										border-radius: 15px;
+										overflow: hidden;
+										box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+										text-align: center;
+										padding: 20px;
+										min-height: 140px;
+										display: flex;
+										flex-direction: column;
+										justify-content: space-between;
+									">
+										
+										<div class="overlay-box" style="flex-grow: 1;">
+											<div class="content" style="color: #fff;">
+												<span class="icon-box flaticon-star" style="font-size: 24px; display: block; margin-bottom: 10px;"></span>
+												<h5 style="margin-bottom: 10px; font-weight: bold;"><?php echo $row["category_name"]; ?></h5>
+												<a style="color: #fff; font-weight: bold; text-decoration: underline;" href="<?php echo $my_global_variable;?>grid-fullwidth.php?category_id=<?php echo $all_cate_list[$i]['cat_id']?>"><?php echo $all_cate_list[$i]['name'];?></a>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<?php } ?>
+                    
                 </div>
             </div>
         </div>
@@ -300,27 +248,27 @@ require_once('includes/config.php');
 </div>
 <!-- Services end -->
 
-<!-- Counters strat -->
+<!-- Counters strat >
 <div class="counters overview-bgi">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="counter-box">
-                    <!--i class="flaticon-category"></i-->
+                    <!--i class="flaticon-category"></i>
                     <h2 class="counter">2381</h2>
                     <p>Categories</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="counter-box">
-                    <!--i class="flaticon-list"></i-->
+                    <!--i class="flaticon-list"></i>
                     <h2 class="counter">22458</h2>
                     <p>Listings</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="counter-box">
-                    <!--i class="flaticon-countries"></i-->
+                    <!--i class="flaticon-countries"></i>
                     <h2 class="counter">43</h2>
                     <p>Countries</p>
                 </div>
@@ -331,11 +279,11 @@ require_once('includes/config.php');
                     <h2 class="counter">177</h2>
                     <p>Projects</p>
                 </div>
-            </div-->
+            </div>
         </div>
     </div>
 </div>
-<!-- Counters end -->
+< Counters end -->
 
 <!-- Pricing tables start >
 <div class="pricing-tables content-area">
