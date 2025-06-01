@@ -172,7 +172,7 @@ else
                         <ul class="pagination">
 						 
 						<li <?php if($page_no <= 1){ echo "class='disabled'"; } ?>>
-						<a <?php if($page_no > 1){ echo "href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$previous_page'"; } ?>>Previous</a>
+						<a <?php if($page_no > 1){ echo "href='grid-fullwidth.php?category_id=".$_GET["category_id"]."&page_no=".$previous_page."'"; } ?>>Previous</a>
 						</li>
 						 
 						<?php
@@ -181,7 +181,7 @@ else
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."&page_no=".$counter."'>$counter</a></li>";
 						}
 						}
 						}
@@ -192,7 +192,7 @@ else
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."&page_no=".$counter."'>$counter</a></li>";
 						}
 						}
 						echo "<li><a>...</a></li>";
@@ -201,14 +201,14 @@ else
 						}
 						 
 						elseif($page_no > 4 && $page_no < $total_no_of_pages - 4) {
-						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/1'>1</a></li>";
-						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/2'>2</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."&page_no=1'>1</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."&page_no=2'>2</a></li>";
 						echo "<li><a>...</a></li>";
 						for ($counter = $page_no - $adjacents; $counter <= $page_no + $adjacents; $counter++) {
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."&page_no=".$counter."'>$counter</a></li>";
 						}
 						}
 						echo "<li><a>...</a></li>";
@@ -225,7 +225,7 @@ else
 						if ($counter == $page_no) {
 						echo "<li class='active'><a>$counter</a></li>";
 						}else{
-						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."/$counter'>$counter</a></li>";
+						echo "<li><a href='grid-fullwidth.php?category_id=".$_GET["category_id"]."&page_no=".$counter."'>$counter</a></li>";
 						}
 						}
 						}

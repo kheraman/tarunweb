@@ -154,7 +154,7 @@ $result_count = mysqli_query($con,"SELECT A.category_id, COUNT(*) AS record_coun
                             </div>
                             <div class="category-content">
                                 <h3 class="category-title">
-                                    <a href="<?php echo $my_global_variable;?>Category/17">Food</a>
+                                    <a href="<?php //echo $my_global_variable;?>Category/17">Food</a>
                                 </h3>
                                 <h4 class="category-subtitle">52 Listings</h4>
                             </div>
@@ -174,7 +174,7 @@ $result_count = mysqli_query($con,"SELECT A.category_id, COUNT(*) AS record_coun
                                     
                                     <div class="category-content">
                                         <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/<?php echo $all_cate_list[$i]['cat_id']?>"><?php echo $all_cate_list[$i]['name']?></a>
+                                            <a href="<?php echo $my_global_variable;?>grid-fullwidth.php?category_id=<?php echo $all_cate_list[$i]['cat_id']?>"><?php echo $all_cate_list[$i]['name']?></a>
                                         </h3>
                                         <!--h4 class="category-subtitle">40 Listings</h4-->
                                     </div>

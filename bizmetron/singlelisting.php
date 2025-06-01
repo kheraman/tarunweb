@@ -35,7 +35,7 @@
         <!-- Main box -->
         <div class="main-box">
             <div class="logo-box">
-                <div class="logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
+                <div class="logo"><a href="index.php"><img src="images/logo.png" alt="" title=""></a></div>
 
                 <!-- Search Btn -->
                 <div class="search-box">

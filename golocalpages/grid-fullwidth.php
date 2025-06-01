@@ -52,23 +52,34 @@ require_once('includes/config.php')
     <![endif]-->
 </head>
 <body>
-<div class="page_loader"></div>
+
 
 <!-- Main header start -->
 <?php include("header.php");?>
 <!-- Main header end -->
 <?php
 
-$catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];							
-							
-							$catresultname = mysqli_query($con,$catsqlname);	
-							$catrowname = mysqli_fetch_array($catresultname, MYSQLI_ASSOC);
+$get_cate_wise_data = callAPI('GET', 'https://localist360.com/api/business?category_id=' . $_GET["category_id"], false);
+
+$all_cate_wise_data = json_decode($get_cate_wise_data, true);
+usort($all_cate_wise_data, function ($a, $b) {
+    return strcmp($a['name'], $b['name']);
+});
+$count = count($all_cate_wise_data);
+//echo "Total records: $count";
+
 ?>
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
     <div class="container">
         <div class="breadcrumb-area">
-            <h1><?php echo $catrowname["category_name"];?></h1>
+             <h3><?php if (!empty($all_cate_wise_data)) {
+    echo "Category Name : ".$all_cate_wise_data[0]['data']['category'];
+}
+else
+	
+	{echo "No records found.";}
+?></h3>
             <!--ul class="breadcrumbs">
                 <li><a href="index.php">Home</a></li>
                 <li class="active"><?php //echo $catrowname["category_name"];?></li>
@@ -109,36 +120,7 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
                 <div class="row">
                     <?php
 					
-					/*Pagination*/
-					if (isset($_GET['page_no']) && $_GET['page_no']!="") {
-					$page_no = $_GET['page_no'];
-					} 
-					else 
-					{
-						$page_no = 1;
-					}
-					
-					$total_records_per_page = 9;
-					$offset = ($page_no-1) * $total_records_per_page;
-					
-					$result_count = mysqli_query($con,"SELECT COUNT(*) As total_records FROM listing_master where category_id=".$_GET["cat_id"]);
-					$total_records = mysqli_fetch_array($result_count);
-					$total_records = $total_records['total_records'];
-					$total_no_of_pages = ceil($total_records / $total_records_per_page);
-					
-					
-					$sql = "select * from listing_master where category_id = ".$_GET["cat_id"]."  order by name asc LIMIT $offset, $total_records_per_page";							
-					$result = mysqli_query($con,$sql);							
-							
-							//die;
-					
-					while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-						{				
-							$catsql = "select * from category_master where cat_id=".$row['category_id'];							
-							
-							$catresult = mysqli_query($con,$catsql);	
-							$catrow = mysqli_fetch_array($catresult, MYSQLI_ASSOC);
-							
+					foreach ($all_cate_wise_data as $cat_data) {
 							?>
 					<div class="col-lg-4 col-md-6 col-sm-12" >
                         <div class="listing-item-box">
@@ -159,14 +141,14 @@ $catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];
                             <div class="detail">
                                 <div class="top">
                                     <h3 class="title">
-                                        <a href="listing-single.php?lid=<?php echo $row['yid'];?>"><?php echo $row['name'];?></a>
+                                        <a href="listing-single.php?lid=<?php echo $cat_data['yid'];?>"><?php echo $cat_data['name'];?></a>
                                     </h3>
                                     <div class="location">
-                                        <a href="#"><i class="flaticon-pin"></i><?php echo $row['street'];?>, <?php echo $row['city'];?>, <?php echo $row['state_iso'];?>-<?php echo $row['postal_code'];?></a>
+                                        <a href="#"><i class="flaticon-pin"></i><?php echo $cat_data['street'];?>, <?php echo $cat_data['city'];?>, <?php echo $row['state_iso'];?>-<?php echo $row['postal_code'];?></a>
                                     </div>
-                                    <p><?php echo substr($row['description'], 0, 25);?>...</p>
+                                    <!--p><?php //echo substr($cat_data['description'], 0, 25);?>...</p-->
                                 </div>
-								<div style="padding-left: 25px;color:#008020">Category : <?php echo $catrow['category_name'];?></div>
+								
                                 <!--div class="ratings">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>

@@ -2,7 +2,7 @@
 //session_start();
 error_reporting(0);
 require_once('includes/config.php');
-
+/*
 $bname = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
 //$bname == "allcategories.php";
 if($bname == "allcategories.php")
@@ -59,7 +59,7 @@ run it here to get business name etc..so this is the challenge
 	$meta_desc= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_desc"]);
 	$meta_keywords= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_keywords"]);
 	
-}*/
+}
 else
 {
 	$meta_title= $row["meta_title"];//die("kkk");
@@ -67,7 +67,7 @@ else
 	$meta_keywords= $row["meta_keywords"];
 }
 						
-					
+	*/				
 
 					
 
@@ -75,7 +75,7 @@ else
 
 <head>
     <title><?php echo $meta_title;?></title>
-	<base href="https://golocalpages.com/">
+
 	<meta name="description" content="<?php echo $meta_desc;?>">
 	<meta name="keywords" content="<?php echo $meta_keywords;?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -147,7 +147,7 @@ else
                             <i class="fa fa-home" style="font-size:18px"></i>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="/index">Home</a></li>
+                            <li><a class="dropdown-item" href="index.php">Home</a></li>
                             <!--li><a class="dropdown-item" href="index-2.html">Index 02</a></li>
                             <li><a class="dropdown-item" href="index-3.html">Index 03</a></li>
                             <li><a class="dropdown-item" href="index-4.html">Index 04</a></li>
@@ -171,7 +171,7 @@ else
                             <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#">Categories</a>
                                 <ul class="dropdown-menu">
                                     
-                                    <li><a class="dropdown-item" href="/allcategories">All</a></li>
+                                    <li><a class="dropdown-item" href="allcategories.php">All</a></li>
 									<!--li><a class="dropdown-item" href="grid-sidebar.html">Listing Sidebar</a></li>
                                     <li><a class="dropdown-item" href="grid-sidebar-map.html">Listing Sidebar Map</a></li>
                                     <li><a class="dropdown-item" href="fullwidth-map.html">Listing Fullwidth Map</a></li-->
@@ -255,7 +255,7 @@ else
                             Contact
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink7">
-                            <li><a class="dropdown-item" href="/contact">Contact Us</a></li>
+                            <li><a class="dropdown-item" href="contact.php">Contact Us</a></li>
                             
                         </ul>
                     </li>

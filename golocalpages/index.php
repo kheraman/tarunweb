@@ -6,14 +6,14 @@
 <!-- Main header end -->
 
 <!-- Map content start -->
-<div class="map-content content-area container-fluid">
-    <!--div class="row">
+<!--div class="map-content content-area container-fluid">
+    <div class="row">
         <div class="col-lg-12">
             <div class="row">
                 <div id="map" class="map-100vh"></div>
             </div>
         </div>
-    </div-->
+    </div>
     <div class="bi-3">
         <div class="container">
             <div class="text-center">
@@ -57,93 +57,32 @@
             <p>Our top listed categories..</p>
         </div>
         <div class="row">
-            <div class="col-lg-5 col-md-12 col-sm-12 col-pad">
-                <div class="category">
-                    <div class="category_bg_box category_long_bg cat-4-bg">
-                        <div class="category-overlay">
-                            <div class="icon">
-                                <i class="flaticon-guitar"></i>
-                            </div>
-                            <div class="category-content">
-                                <h3 class="category-title">
-                                    <a href="<?php echo $my_global_variable;?>Category/22">Monument Maker</a>
-                                </h3>
-                                <h4 class="category-subtitle">52 Listings</h4>
-                            </div>
-                        </div>
-                    </div>
+            
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row">
+                    <?php
+					for($i=0;$i<8;$i++)
+					{
+					?>
+					
+					<div class="col-sm-3 col-pad">
+    <div class="category">
+        <div class="category_bg_box cat-1-bg" style="background: linear-gradient(135deg, #f25620, #ffc2a1);">
+            <div class="category-overlay">
+                <div class="icon">
+                    <i class="flaticon-shop"></i>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">
+                        <a style="color:#2db442;" href="<?php echo $my_global_variable;?>grid-fullwidth.php?category_id=<?php echo $all_cate_list[$i]['cat_id']?>"><?php echo $all_cate_list[$i]['name'];?></a>
+                    </h3>
                 </div>
             </div>
-            <div class="col-lg-7 col-md-12 col-sm-12">
-                <div class="row">
-                    <div class="col-sm-6 col-pad">
-                        <div class="category">
-                            <div class="category_bg_box cat-1-bg">
-                                <div class="category-overlay">
-                                    <div class="icon">
-                                        <i class="flaticon-shop"></i>
-                                    </div>
-                                    <div class="category-content">
-                                        <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/4">Beauty & Spa</a>
-                                        </h3>
-                                        <h4 class="category-subtitle">40 Listings</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-pad">
-                        <div class="category">
-                            <div class="category_bg_box cat-2-bg">
-                                <div class="category-overlay">
-                                    <div class="icon">
-                                        <i class="flaticon-hotel"></i>
-                                    </div>
-                                    <div class="category-content">
-                                        <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/19">Contractors</a>
-                                        </h3>
-                                        <h4 class="category-subtitle">32 Listings</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-pad">
-                        <div class="category">
-                            <div class="category_bg_box cat-5-bg">
-                                <div class="category-overlay">
-                                    <div class="icon">
-                                        <i class="flaticon-cook"></i>
-                                    </div>
-                                    <div class="category-content">
-                                        <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/5">Education</a>
-                                        </h3>
-                                        <h4 class="category-subtitle">24 Listings</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-pad">
-                        <div class="category">
-                            <div class="category_bg_box cat-3-bg">
-                                <div class="category-overlay">
-                                    <div class="icon">
-                                        <i class="flaticon-gym"></i>
-                                    </div>
-                                    <div class="category-content">
-                                        <h3 class="category-title">
-                                            <a href="<?php echo $my_global_variable;?>Category/6">Event Planning Services</a>
-                                        </h3>
-                                        <h4 class="category-subtitle">48 Listings</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </div>
+</div>
+
+                    <?php } ?>
                 </div>
             </div>
         </div>

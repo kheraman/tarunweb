@@ -180,7 +180,7 @@ ul {
     left: 0;
     right: 0;
     bottom: 0;
-	background-color: rgba(187,187,187, 1);
+	background-color: rgba(237,222,213, 1);
 	
 }
 
@@ -3334,7 +3334,7 @@ footer {
     height: 481px;
 }
 .cat-1-bg {
-    background-image: url(../img/cate/Beauty_Spa.jpg);
+    background-image: url(../img/category.jpg);
     padding: 20px;
 }
 

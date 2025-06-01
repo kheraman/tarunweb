@@ -1,51 +1,3 @@
-<?php
-function callAPI($method, $url, $data){
-   $curl = curl_init();
-   switch ($method){
-      case "POST":
-         curl_setopt($curl, CURLOPT_POST, 1);
-         if ($data)
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-         break;
-      case "PUT":
-         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
-         if ($data)
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);			 					
-         break;
-      default:
-         if ($data)
-            $url = sprintf("%s?%s", $url, http_build_query($data));
-   }
-   // OPTIONS:
-   curl_setopt($curl, CURLOPT_URL, $url);
-   curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-      'x-api-key: 8KHjv4sZeCafv4YCGnf9F2TKE6MW016Koz7MhUAf',
-      'Content-Type: application/json',
-   ));
-   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-   curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-   // EXECUTE:
-   $result = curl_exec($curl);
-   if(!$result){die("Connection Failure");}
-   curl_close($curl);
-   return $result;
-}
-
-
-$get_data = callAPI('GET', 'https://app.synup.com/locations?location_id='.$_GET['lid'], false);
-$response = json_decode($get_data, true);
-		/*echo "<pre>";	
-					print_r($response);	
-					echo "</pre>";
-					
-			/*[file_name] => woops-new-pink-logo.png
-					[category_name] => Logo
-                            [category] => Logo */
-
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -120,16 +72,17 @@ function onsubmitform()
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
     <div class="container">
-        <div class="breadcrumb-area">
-            <h1>Listing Details</h1>
+        <div class="breadcrumb-area" style="color:black;">
+            <h1 style="color:black;">Listing Details</h1>
             <ul class="breadcrumbs">
-                <li><a href="index.php">Home</a></li>
-                <li class="active"><?php echo $response['location_info']['category_name'];?></li>
-				<li class="active"><?php echo $response['location_info']['name'];?></li>            
+                <li><a href="index.php" style="color:black;">Home</a></li>
+                <li class="active" style="color:black;"><?php echo $response['location_info']['category_name'];?></li>
+                <li class="active" style="color:black;"><?php echo $response['location_info']['name'];?></li>            
             </ul>
         </div>
     </div>
 </div>
+
 <!-- Sub Banner end -->
 
 <!-- Listing details page start -->
