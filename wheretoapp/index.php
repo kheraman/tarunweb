@@ -57,7 +57,7 @@ require_once('includes/config.php');
                         <!-- Typed words can be configured in script settings at the bottom of this HTML file -->
                         <span class="typed-words"></span>
                     </h3>
-                    <p>Find great places to stay, eat, shop, or visit from local experts.</p>
+                    <!--p>Find great places to stay, eat, shop, or visit from local experts.</p-->
                 </div>
 
                 <!-- Listing Search Tabs -->
@@ -72,46 +72,7 @@ require_once('includes/config.php');
 
                     <div class="tabs-content">
                         <!--Tab-->
-                        <div class="tab active-tab" id="tab1">
-                            <div class="listing-search-form">
-                                <form method="post" action="/categorylisting" enctype="multipart/form-data" onsubmit='return onsubmitform();'>
-                                    <div class="row">
-                                        <div class="form-group col-lg-4 col-md-6 col-sm-12">
-                                            <input type="text" name="searchtext" id="searchtext" placeholder="What are you looking for?" required>
-                                        </div>
-                                        <!-- Form Group -->
-                                        <div class="form-group col-lg-3 col-md-6 col-sm-12 location">
-                                            <input type="text" name="location" id="location" placeholder="Location">
-                                            <span class="icon flaticon-placeholder" data-text="Type and hit enter"></span>
-                                        </div>
-										<?php
-										$sql = "select * from category_master";							
-										$result = mysqli_query($con,$sql);							
-										
-													//die;
-													
-													?>
-                                        <!-- Form Group -->
-                                        <div class="form-group col-lg-3 col-md-6 col-sm-12">
-                                            <select name="cid" class="chosen-select">
-												<option value="0">All Categories</option>
-                                                <?php
-												while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-												{		
-												?>
-														<option value="<?php echo $row["cat_id"];?>"><?php echo $row["category_name"];?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-
-                                        <!-- Form Group -->
-                                        <div class="form-group col-lg-2 col-md-6 col-sm-12 text-right">
-                                            <input type="submit" name="submit" style="background-color: #ff007a;border-color: #ff007a;    color: #ffffff; font-weight: bold; font-size: 18px;">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        
 
                         <!--Tab>
                         <div class="tab" id="tab2">
@@ -267,32 +228,26 @@ require_once('includes/config.php');
             <div class="row">
                 <!-- Feature Block -->
                 <?php
-							$numbers = range(1, 21);
-							shuffle($numbers);
-							$numbers = array_slice($numbers, 0, 6);
-							//print_r($numbers);
-						
-							$sql = "select * from category_master where cat_id in (".$numbers[0].",".$numbers[1].",".$numbers[2].",".$numbers[3].",".$numbers[4].",".$numbers[5].")";							
-							$result = mysqli_query($con,$sql);							
-									
-									//die;
-							
-							while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
-								{	
-							?>
+					for($i=0;$i<6;$i++)
+					{
+					?>
 								<div class="feature-block col-lg-4 col-md-6 col-sm-12">
-									<div class="inner-box">
-										<figure class="image"><img src="images/cate/<?php echo $row["image"];?>" alt=""></figure>
-										<div class="overlay-box">
-											<div class="content">
-												<span class="icon-box flaticon-musical-note"></span>
-												<h5><?php echo $row["category_name"];?></h5>
-												<span class="locations">07 Locations</span>
-												<a href="<?php echo $my_global_variable;?>Category/<?php echo $row['cat_id'];?>" class="overlay-link"></a>
-											</div>
-										</div>
+								  <div class="inner-box">
+									<figure class="image" style="max-height: 120px; overflow: hidden;">
+									  <img src="images/Pexels.jpg" alt="" style="width: 100%; height: auto;">
+									</figure>
+									<div class="overlay-box">
+									  <div class="content" style="text-align: right;">
+										
+										
+										<a style="color: #fff; font-weight: bold; text-decoration: underline;" href="<?php echo $my_global_variable; ?>categorylisting.php?category_id=<?php echo $all_cate_list[$i]['cat_id'] ?>">
+										  <?php echo $all_cate_list[$i]['name']; ?>
+										</a>
+									  </div>
 									</div>
+								  </div>
 								</div>
+
 								<?php } ?>
                 
             </div>
@@ -300,7 +255,7 @@ require_once('includes/config.php');
     </section>
     <!-- End Features Section -->
 
-	
+	<?php /* ?>
     <!-- Listing Section -->
     <section class="listing-section style-two">
         <div class="container-fluid">
@@ -546,6 +501,7 @@ require_once('includes/config.php');
             </div>
         </div>
     </section>
+	<?php */ ?>
     <!-- End Listing Section -->
 
     <!-- How It Works >

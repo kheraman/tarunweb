@@ -21,7 +21,7 @@ require_once('includes/config.php');
 <div class="nav-outer">
                 <nav class="nav main-menu">
                     <ul class="navigation" id="navbar">
-						<li><a href="/index">Home</a></li>
+						<li><a href="index.php">Home</a></li>
                         <!--li class="current dropdown">
                             <span>Home</span>
                             <ul>
@@ -56,7 +56,7 @@ require_once('includes/config.php');
                                 <li><a href="error-page.html">Error 404</a></li>
                             </ul>
                         </li-->
-						<li><a href="/allcategories">All Listings</a></li>
+						<li><a href="allcategories.php">All Listings</a></li>
                         <!--li class="dropdown">
                             <span>Listings</span>
                             <ul>
@@ -105,8 +105,8 @@ require_once('includes/config.php');
                                 <li><a href="blog-single.html">Blog Single</a></li>
                             </ul>
                         </li-->
-                        <li><a href="/about-us">About Us</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="about-us.php">About Us</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                         <!--li class="mm-add-listing"><a href="add-listing.html" class="theme-btn btn-style-three"><span class="flaticon-plus-symbol"></span>Add Listing</a></li-->
                     </ul>
                 </nav>
@@ -161,7 +161,7 @@ require_once('includes/config.php');
 
         <!-- Mobile Header -->
         <div class="mobile-header">
-            <div class="logo"><a href="/index"><img src="images/logo.png" alt="" title=""></a></div>
+            <div class="logo"><a href="index.php"><img src="images/logo.png" alt="" title=""></a></div>
 
             <!--Nav Box-->
             <div class="nav-outer clearfix">

@@ -25,7 +25,7 @@
                 </ul-->
 
                 <ul class="copyright-text">
-                    <li>Copyright © <?php echo date("Y");?> MyLocalEdge</li>
+                    <li>Copyright © <?php echo date("Y");?> WhereToApp</li>
                     <!--li>New York, NY</li>
                     <li><a href="#">+61 2 8236 9200</a></li-->
                 </ul>
