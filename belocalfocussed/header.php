@@ -69,7 +69,9 @@ if(isset($_GET["cat_id"]) && $_GET["cat_id"] !="")
   	$meta_desc= $row["meta_desc"];
  	$meta_keywords= $row["meta_keywords"];
 
-  }*/
+  }
+  
+  */
 						
 					
 $meta_title= "BeLocalFocussed.com - Find Global Businesses Near You";//die("kkk");
@@ -81,7 +83,7 @@ $meta_title= "BeLocalFocussed.com - Find Global Businesses Near You";//die("kkk"
 
 <head>
     <title><?php echo $meta_title;?></title>
-	<base href="https://belocalfocussed.com/">
+	<base href="<?php echo $my_global_variable;?>">
 	<meta name="description" content="<?php echo $meta_desc;?>">
 	<meta name="keywords" content="<?php echo $meta_keywords;?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

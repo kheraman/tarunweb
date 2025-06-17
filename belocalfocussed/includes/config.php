@@ -1,6 +1,6 @@
 <?php
 
-error_reporting(1);
+error_reporting(0);
 
 /*
 $uri = "mysql://avnadmin:AVNS_0ut9vkTOgcNWiXGft99@mysql-262f297f-khe-af93.k.aivencloud.com:18956/defaultdb?ssl-mode=REQUIRED";
@@ -36,9 +36,9 @@ if (!$con->real_connect($host, $user, $pass, $dbname, $port)) {
 global $my_global_variable,$cate_list,$response;
 
 // Set the value of the global variable
-//$my_global_variable = "https://belocalfocussed.com/";
+$my_global_variable = "https://belocalfocussed.com/";
 
-$my_global_variable = "http://localhost/Synup_LIVE_websites/SYNUP/belocalfocussed/";
+//$my_global_variable = "http://localhost/Synup_LIVE_websites/SYNUP/belocalfocussed/";
 
 
 
