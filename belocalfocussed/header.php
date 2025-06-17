@@ -3,6 +3,7 @@
 
 require_once('includes/config.php');
 
+/*
 $bname = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
 
 //$bname == "allcategories.php";
@@ -32,7 +33,7 @@ else
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	
 // 	//print_r($row); die("hhh");
-/*
+
 if(isset($_GET["cat_id"]) && $_GET["cat_id"] !="")	
  {
  	$catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];							
