@@ -27,6 +27,7 @@ function onsubmitform()
 		document.getElementById(searchtext).focus();
 		return false;
 	}
+}
 	
 </script>
 
