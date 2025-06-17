@@ -98,7 +98,7 @@ else
 
 <head>
     <title><?php //echo $meta_title;?></title>
-	
+	<base href="<?php echo $my_global_variable;?>">
 	<meta name="description" content="<?php //echo $meta_desc;?>">
 	<meta name="keywords" content="<?php //echo $meta_keywords;?>">
 	

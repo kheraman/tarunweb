@@ -20,12 +20,12 @@
 </head>
 
 <body>
-
+<base href="https://mylocaledge.com/">
 <div class="page-wrapper">
 
     <!-- Preloader -->
     <div class="preloader"></div>
-
+ <?php include("header.php");?>
     <!-- Main Header-->
     <header class="main-header">
         

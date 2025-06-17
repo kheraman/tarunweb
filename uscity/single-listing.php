@@ -193,7 +193,7 @@ function showSlides(n) {
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
+<base href="https://uscity.io/">
     <?php include("header1.php");?>
     <!-- Header End -->
 

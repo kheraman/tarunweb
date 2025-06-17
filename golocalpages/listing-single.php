@@ -64,7 +64,7 @@ function onsubmitform()
 
 </script>
 
-
+<base href="https://golocalpages.com/">
 <!-- Main header start -->
  <?php include("header.php");?>
 <!-- Main header end -->

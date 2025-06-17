@@ -10,7 +10,7 @@ require_once('includes/config.php');
 ?>
 <head>
     <meta charset="UTF-8">
-	
+	<base href="<?php echo $my_global_variable;?>">
     <meta name="description" content="<?php echo $meta_desc;?>">
 	<meta name="keywords" content="<?php echo $meta_keywords;?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -2,6 +2,8 @@
 //session_start();
 error_reporting(0);
 require_once('includes/config.php');
+
+
 /*
 $bname = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
 //$bname == "allcategories.php";
@@ -69,13 +71,16 @@ else
 						
 	*/				
 
-					
+					$meta_title= "GoLocalPages.com - Find Global Businesses Near You";//die("kkk");
+  	$meta_desc= "Search and discover businesses worldwide on GoLocalPages. Browse by category, location, or specific services.";
+ 	$meta_keywords= "global business directory, businesses worldwide, top businesses";
+		
 
 ?>
 
 <head>
     <title><?php echo $meta_title;?></title>
-
+<base href="<?php echo $my_global_variable;?>">
 	<meta name="description" content="<?php echo $meta_desc;?>">
 	<meta name="keywords" content="<?php echo $meta_keywords;?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
