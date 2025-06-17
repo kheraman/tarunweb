@@ -26,18 +26,7 @@ require_once('includes/config.php');
 <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 
-<script language="javascript">
 
-function onsubmitform()
-{
-	if(document.getElementById('searchtext').value=='' || document.getElementById('location').value=='')
-	{
-		alert('Please enter text to search');
-		document.getElementById(searchtext).focus();
-		return false;
-	}
-	
-</script>
 </head>
 <?php
 
