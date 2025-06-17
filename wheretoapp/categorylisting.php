@@ -148,7 +148,7 @@ else
                                             <span class="fa fa-star"></span>
                                             <span class="title">(7 review)</span>
                                         </div-->
-                                        <h3><a href="singlelisting.php?lid=<?php echo $cat_data['yid'];?>"><?php echo $cat_data["name"];?><span class="icon icon-verified"></span></a></h3>
+                                        <h3><a href="Listing/L-<?php echo $cat_data['yid'];?>"><?php echo $cat_data["name"];?><span class="icon icon-verified"></span></a></h3>
                                         
                                         <ul class="info">
                                             <li><span class="flaticon-pin"></span> <?php echo $cat_data['street'];?>, <?php echo $cat_data['city'];?>, <?php echo $cat_data['state_iso'];?>-<?php echo $cat_data['postal_code'];?></li>

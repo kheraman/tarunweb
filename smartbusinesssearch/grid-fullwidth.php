@@ -83,7 +83,7 @@ else
                             <div class="detail">
                                 <div class="top">
                                     <h3 class="title">
-                                        <a href="listing-single.php?lid=<?php echo $cat_data['yid'];?>"><?php echo $cat_data['name'];?></a>
+                                        <a href="Listing/L-<?php echo $cat_data['yid'];?>"><?php echo $cat_data['name'];?></a>
                                     </h3>
                                     <div class="location">
                                         <a href="#"><i class="flaticon-pin"></i><?php echo $cat_data['street'];?>, <?php echo $cat_data['city'];?>, <?php echo $row['state_iso'];?>-<?php echo $row['postal_code'];?></a>

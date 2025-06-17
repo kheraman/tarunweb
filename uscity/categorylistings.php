@@ -237,7 +237,7 @@ else
 							<span><?php echo $cat_data['street']; ?>, <?php echo $cat_data['city']; ?>, <?php echo $cat_data['state_iso']; ?>-<?php echo $cat_data['postal_code']; ?></span>
 
 							<div class="open" style="margin-top: 10px;">
-							  <a href="single-listing.php?lid=<?php echo $cat_data['yid']; ?>" style="color: #33c4eb; font-weight: bold;">Know more</a>
+							  <a href="Listing/L-<?php echo $cat_data['yid']; ?>" style="color: #33c4eb; font-weight: bold;">Know more</a>
 							</div>
 						  </div>
 						</div>
