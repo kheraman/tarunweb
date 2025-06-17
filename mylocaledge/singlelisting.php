@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Listing Single </title>
-
+<base href="https://mylocaledge.com/">
 <!-- Stylesheets -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-<base href="https://mylocaledge.com/">
+
 <div class="page-wrapper">
 
     <!-- Preloader -->

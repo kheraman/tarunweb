@@ -5,6 +5,7 @@ error_reporting(0);
 global $my_global_variable,$cate_list,$response;
 
 // Set the value of the global variable
+
 $my_global_variable = "https://mylocaledge.com/";
 
 //$my_global_variable = "http://localhost/Synup_LIVE_websites/SYNUP/mylocaledge/";
