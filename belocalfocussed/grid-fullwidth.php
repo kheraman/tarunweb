@@ -145,7 +145,7 @@ else
 							<div class="detail">
 								<div class="top">
 									<h5 class="title">
-										<a href="<?php echo $my_global_variable;?>listing-single.php?lid=<?php echo $cat_data['yid'];?>"><?php echo $cat_data['name'];?></a>
+										<a href="<?php echo $my_global_variable;?>Listing/L-<?php echo $cat_data['yid'];?>"><?php echo $cat_data['name'];?></a>
 									</h5>
 									<div class="location">
 										<i class="flaticon-pin"></i><?php echo $cat_data['city'];?>, <?php echo $cat_data['country_iso'];?>-<?php echo $cat_data['postal_code'];?></a>

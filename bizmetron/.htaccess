@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rule for category without pagination (works fine)
+RewriteRule ^Category/([0-9]+)/?$ grid-fullwidth.php?cat_id=$1 [L,QSA]
+# Rule for category with pagination (fix)
+RewriteRule ^Category/([0-9]+)/([0-9]+)/?$ grid-fullwidth.php?cat_id=$1&page_no=$2 [L,QSA]
+RewriteRule ^Listing/L-(.*?)/?$ singlelisting.php?lid=$1 [L]
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
+
