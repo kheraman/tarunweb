@@ -38,7 +38,7 @@ function onsubmitform()
 <div class="page-wrapper bg_alice">
 
     <!-- Preloader -->
-    <div class="preloader"></div>
+<!--     <div class="preloader"></div> -->
     
     <!-- Main Header-->
     
