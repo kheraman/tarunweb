@@ -32,9 +32,9 @@
 global $my_global_variable,$cate_list,$response;
 
 // Set the value of the global variable
-//$my_global_variable = "https://bizmetron.com/";
+$my_global_variable = "https://bizmetron.com/";
 
-$my_global_variable = "http://localhost/Synup_LIVE_websites/SYNUP/bizmetron/";
+//$my_global_variable = "http://localhost/Synup_LIVE_websites/SYNUP/bizmetron/";
 
 
 
@@ -70,11 +70,15 @@ function callAPI($method, $url, $data){
    return $result;
 }
 
-
 $get_all_cate_data = callAPI('GET', 'https://localist360.com/api/category', false);
 $all_cate_list = json_decode($get_all_cate_data, true);
-shuffle($all_cate_list);
 
+if (is_array($all_cate_list)) {
+    shuffle($all_cate_list);
+} else {
+    // Optional: log or handle the error
+    error_log("Invalid category data: " . $get_all_cate_data);
+}
 
 $get_data = callAPI('GET', 'https://app.synup.com/locations?location_id='.$_GET['lid'], false);
 $response = json_decode($get_data, true);
