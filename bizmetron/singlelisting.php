@@ -33,66 +33,8 @@
     <header class="main-header">
         
         <!-- Main box -->
-        <div class="main-box">
-            <div class="logo-box">
-                <div class="logo"><a href="index.php"><img src="images/logo.png" alt="" title=""></a></div>
-
-                <!-- Search Btn -->
-                <div class="search-box">
-                    <!-- Search Backdrop -->
-                    <div class="search-backdrop"></div>
-
-                    <div class="header-search-form">
-                        <input type="text" name="header-search" id="cusom-search" data-list=".search-list" placeholder="What are you looking for?">
-                        <span class="search-btn"><i class="flaticon-magnifying-glass"></i></span>    
-                    </div>
-
-                    <div class="search-list">
-                        <div class="search-item region">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">City Of London </div>
-                            <span class="cat">Region</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                        <div class="search-item region">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">City of Westminster </div>
-                            <span class="cat">Region</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                        <div class="search-item region">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">Chelsea District </div>
-                            <span class="cat">Region</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                        <div class="search-item listing">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">Top Picks </div>
-                            <span class="cat">Featured Listings</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                        <div class="search-item shopping">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">Shopping </div>
-                            <span class="cat">Category</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                        <div class="search-item food">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">Local Food </div>
-                            <span class="cat">Category</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                        <div class="search-item prize">
-                            <i class="icon flaticon-placeholder"></i>
-                            <div class="text">Free Entrance </div>
-                            <span class="cat">Tag</span>
-                            <a href="listing-single.html" class="overlay-link"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+       
+            
 
 <script>	
 
@@ -158,7 +100,7 @@ function onsubmitform()
             <!--Nav Box-->
             
             
-        </div>
+        
 
         <!-- Mobile Header -->
         
