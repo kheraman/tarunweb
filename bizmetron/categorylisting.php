@@ -66,7 +66,7 @@ $count = count($all_cate_wise_data);
         <!-- Mobile Nav -->
         <div id="nav-mobile"></div>
 
-        <!-- Header Search -->
+        <!-- Header Search >
         <div class="search-popup">
             <span class="search-back-drop"></span>
             

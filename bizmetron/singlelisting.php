@@ -27,10 +27,9 @@
 <div class="page-wrapper">
 
     <!-- Preloader -->
-    <div class="preloader"></div>
-
-    <!-- Main Header-->
-	 <?php include("header.php");  ?>
+    
+<?php include("header.php");  ?>
+   
     <header class="main-header">
         
         <!-- Main box -->
@@ -158,7 +157,7 @@ function onsubmitform()
 </script>
             <!--Nav Box-->
             
-            <?php include("header.php");  ?>
+            
         </div>
 
         <!-- Mobile Header -->
@@ -559,21 +558,8 @@ function onsubmitform()
                                     </div>
                                 </div>
 
-                                <!--ul class="contact-info-list">
-                                    <li><span class="icon flaticon-pin"></span> 484 Ellis St, San Francisco, CA 94102,<br> United States</li>
-                                    <li><span class="icon flaticon-call"></span> <a href="tel:61282369200">+61 2 8236 9200 </a></li>
-                                    <li><span class="icon flaticon-mail"></span> <a href="mailto:support@listdo.com">support@listdo.com </a></li>
-                                    <li><span class="icon flaticon-unlink"></span> <a href="www.listdo.com">www.listdo.com</a></li>
-                                </ul>
-
-                                <ul class="social-icon-two">
-                                    <li><a href="#"><span class="fab fa-facebook"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-pinterest"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-dribbble"></span></a></li>
-                                    <li><a href="#"><span class="fab fa-google"></span></a></li>
-                                </ul-->
+                                
+								
                             </div>
 							<?php } ?>
                         </div>
