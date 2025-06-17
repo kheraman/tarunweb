@@ -129,9 +129,9 @@
 
 
 
-
+/*
 $result_count = mysqli_query($con,"SELECT A.category_id, COUNT(*) AS record_count, B.category_name FROM listing_master A JOIN category_master B ON A.category_id = B.cat_id WHERE A.category_id in (1,3,15,17,18) GROUP BY A.category_id, B.category_name");
-					$total_records = mysqli_fetch_array($result_count);
+					$total_records = mysqli_fetch_array($result_count);*/
 					?>
 <!-- Categories strat -->
 <div class="categories content-area-7">

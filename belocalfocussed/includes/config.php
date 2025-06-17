@@ -1,6 +1,8 @@
 <?php
 
-error_reporting(0);
+error_reporting(1);
+
+/*
 $uri = "mysql://avnadmin:AVNS_0ut9vkTOgcNWiXGft99@mysql-262f297f-khe-af93.k.aivencloud.com:18956/defaultdb?ssl-mode=REQUIRED";
 
 $fields = parse_url($uri);
@@ -28,6 +30,8 @@ $con->ssl_set(NULL, NULL, $sslcert, NULL, NULL);
 if (!$con->real_connect($host, $user, $pass, $dbname, $port)) {
     die("Error connecting to database with SSL: " . $con->connect_error);
 }
+
+*/
 
 global $my_global_variable,$cate_list,$response;
 
@@ -73,8 +77,13 @@ function callAPI($method, $url, $data){
 
 $get_all_cate_data = callAPI('GET', 'https://localist360.com/api/category', false);
 $all_cate_list = json_decode($get_all_cate_data, true);
-shuffle($all_cate_list);
 
+if (is_array($all_cate_list)) {
+    shuffle($all_cate_list);
+} else {
+    // Optional: log or handle the error
+    error_log("Invalid category data: " . $get_all_cate_data);
+}
 
 $get_data = callAPI('GET', 'https://app.synup.com/locations?location_id='.$_GET['lid'], false);
 $response = json_decode($get_data, true);
