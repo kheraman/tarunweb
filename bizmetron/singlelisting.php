@@ -30,6 +30,7 @@
     <div class="preloader"></div>
 
     <!-- Main Header-->
+	 <?php include("header.php");  ?>
     <header class="main-header">
         
         <!-- Main box -->
