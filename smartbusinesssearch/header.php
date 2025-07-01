@@ -1,109 +1,94 @@
 <?php
+////session_start();
+
 require_once('includes/config.php');
+
 /*
-$bnameval="";
-$bnameval = explode("/", $_SERVER['REQUEST_URI']);
-//print_r($bnameval);
-$bname = $bnameval[1];
+$bname = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
 
+//$bname == "allcategories.php";
+if($bname == "allcategories.php")
+{		$page_type = "all_categories";	}
 
+elseif($bname == "grid-fullwidth.php")
+{		$page_type = "single_category";	}
 
+elseif($bname == "listing-single.php")
+{		$page_type = "single_listing";	}
 
-if (strpos($bnameval[2], "L-") !== false) 
-{
-	$lidval = explode("-", $bnameval[2]);
-	$lid = $lidval[1];
-	$cid = "";
-}
-else
-{
-	$cid = $bnameval[2];
-	$lid = "";	
-}	
-	
+elseif($bname == "contact.php")
+{		$page_type = "contactus";	}
 
+elseif($bname == "privacy-policy.php")
+{		$page_type = "privacy_policy";	}
 
-//echo $bname."   hhh  ";//die;
-
-if($bname == "allcategories")
-{		$page_type = "allcategories";	}
-elseif($bname == "Category")
-{		$page_type = "Category";	}
-elseif($bname == "Listing")
-{		$page_type = "Listing";	}
-elseif($bname == "contact")
-{		$page_type = "contact";	}
-
-elseif($bname == "privacy-policy")
-{		$page_type = "privacy-policy";	}
-
-elseif($bname == "termsandconditions")
-{		$page_type = "termsandconditions";	}
+elseif($bname == "termsandconditions.php")
+{		$page_type = "terms_condition";	}
 else
 {
 	$page_type = "index";	
 }	
-	
-	$sql = "select * from meta_tags where page_type = '".$page_type."'";							
+ 	$sql = "select * from meta_tags where page_type = '".$page_type."'";		 //die;					
 	$result = mysqli_query($con,$sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	
-	//print_r($row); die("hhh");
-if(isset($cid) && $cid !="")	
-{
-	$catsqlname = "select * from category_master where cat_id=".$cid;							
+// 	//print_r($row); die("hhh");
+
+if(isset($_GET["cat_id"]) && $_GET["cat_id"] !="")	
+ {
+ 	$catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];							
 							
-							$catresultname = mysqli_query($con,$catsqlname);	
-							$catrowname = mysqli_fetch_array($catresultname, MYSQLI_ASSOC);
+ 							$catresultname = mysqli_query($con,$catsqlname);	
+ 							$catrowname = mysqli_fetch_array($catresultname, MYSQLI_ASSOC);
 
 	
-	//echo str_replace("[Category Name]",$catrowname,"Hello world!");
-	$meta_title= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_title"]);
-	$meta_desc= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_desc"]);
-	$meta_keywords= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_keywords"]);
+  	//echo str_replace("[Category Name]",$catrowname,"Hello world!");
+  	$meta_title= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_title"]);
+  	$meta_desc= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_desc"]);
+  	$meta_keywords= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_keywords"]);
 	
-}
-elseif(isset($lid) && $lid !="")	
-{
-		//echo "yyyyyyy";
-		
-$meta_title= str_replace("[Business Name]",$response['location_info']['name'],$row["meta_title"] );
-$meta_title= str_replace("[Business Category]",$response['location_info']['category_name'],$meta_title );
-$meta_title= str_replace("[Business Location]",$response['location_info']['city'],$meta_title );
-
-
-$meta_desc= str_replace("[Business Name]",$response['location_info']['name'],$row["meta_desc"] );
-$meta_desc= str_replace("[Business Category]",$response['location_info']['category_name'],$meta_desc);
-$meta_desc= str_replace("[Business Location]",$response['location_info']['city'],$meta_desc );
-
-$meta_keywords= str_replace("[Business Name]",$response['location_info']['name'],$row["meta_keywords"] );
-$meta_keywords= str_replace("[Business Category]",$response['location_info']['category_name'],$meta_keywords);
-$meta_keywords= str_replace("[Business Location]",$response['location_info']['city'],$meta_keywords);
-
+  }
+  elseif(isset($_GET["lid"]) && $_GET["lid"] !="")	/* because here data is coming from API which is running on listing single page but here we need to
+  run it here to get business name etc..so this is the challenge
+ {
+  	$catsqlname = "select * from category_master where cat_id=".$_GET['cat_id'];							
+							
+ 						$catresultname = mysqli_query($con,$catsqlname);	
+  							$catrowname = mysqli_fetch_array($catresultname, MYSQLI_ASSOC);
 
 	
-}
-else
-{
-	$meta_title= $row["meta_title"];//die("kkk");
-	$meta_desc= $row["meta_desc"];
-	$meta_keywords= $row["meta_keywords"];
-}
+  	//echo str_replace("[Category Name]",$catrowname,"Hello world!");
+  	$meta_title= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_title"]);
+  	$meta_desc= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_desc"]);
+  	$meta_keywords= str_replace("[Category Name]",$catrowname['category_name'],$row["meta_keywords"]);
+	
+  }
+  else
+  {
+  	$meta_title= $row["meta_title"];//die("kkk");
+  	$meta_desc= $row["meta_desc"];
+ 	$meta_keywords= $row["meta_keywords"];
+
+  }
+  
+  */
 						
-	*/				
+		
 
+				
+$meta_title= "SmartBusinessSearch.com - Find Global Businesses Near You";  
+  	$meta_desc= "Search and discover businesses worldwide on SmartBusinessSearch. Browse by category, location, or specific services.";
+ 	$meta_keywords= "global business directory, businesses worldwide, top businesses";
 					
 
 ?>
 
 <head>
-    <title><?php //echo $meta_title;?></title>
+    <title><?php echo $meta_title;?></title>
 	<base href="<?php echo $my_global_variable;?>">
-	<meta name="description" content="<?php //echo $meta_desc;?>">
-	<meta name="keywords" content="<?php //echo $meta_keywords;?>">
-	
-    
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="<?php echo $meta_desc;?>">
+	<meta name="keywords" content="<?php echo $meta_keywords;?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 
     <!-- External CSS libraries -->
@@ -152,7 +137,7 @@ else
 	
 </head>
 <body>
-<div class="page_loader"></div>
+
 <header class="main-header header-transparent sticky-header">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">

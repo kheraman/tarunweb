@@ -67,12 +67,13 @@ function onsubmitform()
 
 </head>
 <body>
-<div class="page_loader"></div>
+
+
 
 <!-- Main header start -->
  <?php include("header.php");?>
 <!-- Main header end -->
-<base href="https://smartbusinesssearch.com/">
+
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
     <div class="container">
