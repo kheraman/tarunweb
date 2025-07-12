@@ -145,8 +145,8 @@ function onsubmitform()
                 <figure class="image"><img src="images/resource/listing-icon-1.jpg" alt=""></figure-->
                 
                 <h1 style="color:white"><?php echo $response['location_info']['name'];?><span class="icon icon-verified"></span></h1>
-				<div class="text" style="font-size:22px;">Category : <?php echo $response['location_info']['category_name'];?></div>
-				<div class="text" style="font-size:22px;"><?php if($response['location_info']['hide_address'] == "") {  echo $response['location_info']['street'].", "; }?><?php echo $response['location_info']['city'];?>, <?php echo $response['location_info']['state_iso'];?> - <?php echo $response['location_info']['postal_code'];?><br><span class="icon flaticon-phone-call-1"></span>  <?php echo $response['location_info']['phone'];?><br><span class="icon flaticon-unlink"></span>  Website : <a style="color:white;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank"><u>Click here..</u></a><br>Sub-Category : <?php echo $response['location_info']['sub_category_name'];?></div>
+				<div class="text" style="font-size:22px;"> <?php echo $response['location_info']['sub_category_name'];?></div>
+				<div class="text" style="font-size:22px;"><?php if($response['location_info']['hide_address'] == "") {  echo $response['location_info']['street'].", "; }?><?php echo $response['location_info']['city'];?>, <?php echo $response['location_info']['state_iso'];?> - <?php echo $response['location_info']['postal_code'];?><br><span class="icon flaticon-phone-call-1"></span>  <?php echo $response['location_info']['phone'];?><br><span class="icon flaticon-unlink"></span>  Website : <a style="color:white;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank"><u>Click here..</u></a></div>
             </div>
 
 			<div class="listing-options">

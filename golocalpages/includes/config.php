@@ -47,7 +47,7 @@ function callAPI($method, $url, $data){
 
 $get_all_cate_data = callAPI('GET', 'https://localist360.com/api/category', false);
 $all_cate_list = json_decode($get_all_cate_data, true);
-shuffle($all_cate_list);
+//shuffle($all_cate_list);
 
 
 $get_data = callAPI('GET', 'https://app.synup.com/locations?location_id='.$_GET['lid'], false);

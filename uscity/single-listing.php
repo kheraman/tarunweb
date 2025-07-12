@@ -222,7 +222,7 @@ function showSlides(n) {
                         <div class="intro-share">
                             <div class="share-btn">
                                 <!--a href="#" class="share">Share</a-->
-                                <a href="Categorylistings/<?php echo $response['location_info']['category_id'];?>"><?php echo $response['location_info']['category_name'];?></a>
+                                <a href="Categorylistings/<?php echo $response['location_info']['category_id'];?>"><?php echo $response['location_info']['sub_category_name'];?></a>
 
                             </div>
                             <div class="share-icon">
@@ -328,7 +328,7 @@ echo '<iframe width="100%" height="385" frameborder="0" src="https://maps.google
                                     <!--span>&nbsp;</span-->
                                     <ul>
 										<li><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; } ?><?php echo $response['location_info']['city'];?>, <?php echo $response['location_info']['state_iso'];?> - <?php echo $response['location_info']['postal_code'];  ?></li>
-										<li><b>Sub-Category : </b><?php echo $response['location_info']['sub_category_name'];?></li>
+										<!--li><b>Sub-Category : </b><?php //echo $response['location_info']['sub_category_name'];?></li-->
                                         <li><b>Phone : </b>+1 <?php echo $response['location_info']['phone'];?></li>
 										<?php if($response['location_info']['owner_email'] != "") { ?>
                                         <li><b>Email : </b><?php echo $response['location_info']['owner_email']; ?></li>
