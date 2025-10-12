@@ -88,7 +88,7 @@ if (is_array($all_cate_list)) {
 $get_data = callAPI('GET', 'https://app.synup.com/locations?location_id='.$_GET['lid'], false);
 $response = json_decode($get_data, true);
 		/*echo "<pre>";	
-					print_r($response['location_info']['business_hours']);	
+					print_r($response['location_info']);	
 					echo "</pre>";
 					//die;
 		 	 	/*			

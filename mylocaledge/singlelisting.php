@@ -201,7 +201,7 @@ function onsubmitform()
                 
                 <h1 style="color:white"><?php echo $response['location_info']['name'];?><span class="icon icon-verified"></span></h1>
 				<div class="text" style="font-size:22px;"><?php echo $response['location_info']['sub_category_name'];?></div>
-				<div class="location clearfix"><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; }  echo $response['location_info']['city'].", "; echo $response['location_info']['state_iso'];?> - <?php echo $response['location_info']['postal_code'];  ?><br>Phone : <?php echo $response['location_info']['phone'];?><br>Website : <a style="color:blue;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank">Click here..</a></div>
+				<div class="location clearfix"><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; }  echo $response['location_info']['city'].", "; if($response['location_info']['state_name'] != NULL) echo $response['location_info']['state_name'].", ";?><?php if($response['location_info']['country_name'] != "")echo $response['location_info']['country_name'];?> - <?php echo $response['location_info']['postal_code'];  ?><br>Phone : <?php echo $response['location_info']['phone'];?><br>Website : <a style="color:blue;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank">Click here..</a></div>
                         
             </div>
 

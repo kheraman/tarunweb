@@ -101,7 +101,7 @@ function onsubmitform()
                     <div class="clearfix"></div>
                     <div class="mb-30">
                         <div class="location clearfix"><?php 
-						if($response['location_info']['hide_address'] == "") { echo "<i class='flaticon-pin'></i>".$response['location_info']['street'].", "; } ?><?php echo $response['location_info']['city']; ?>, <?php echo $response['location_info']['state_iso']; ?> - <?php echo $response['location_info']['postal_code']; ?><br>Phone : <?php echo $response['location_info']['phone'];?><br>Website : <a style="color:blue;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank">Click here..</a></div>
+						if($response['location_info']['hide_address'] == "") { echo "<i class='flaticon-pin'></i>".$response['location_info']['street'].", "; } ?><?php echo $response['location_info']['city']; ?>, <?php if($response['location_info']['state_name'] != NULL) echo $response['location_info']['state_name'].", ";?><?php if($response['location_info']['country_name'] != "")echo $response['location_info']['country_name'];?> - <?php echo $response['location_info']['postal_code']; ?><br>Phone : <?php echo $response['location_info']['phone'];?><br>Website : <a style="color:blue;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank">Click here..</a></div>
                         <div class="clearfix"></div>
                         <!--div class="ratings-2">
                             <span class="ratings-box">4.5/5</span>
