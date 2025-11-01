@@ -19,6 +19,25 @@
 <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
 
+<?php
+function getCountryCode($countryName) {
+    $filePath = 'country_codes.json';
+    if (!file_exists($filePath)) return 'Country code file missing';
+
+    $jsonData = json_decode(file_get_contents($filePath), true);
+    if (json_last_error() !== JSON_ERROR_NONE) return 'Invalid JSON';
+
+    $countryName = strtolower(trim($countryName));
+
+    foreach ($jsonData as $name => $code) {
+        if (strtolower($name) === $countryName) return $code;
+    }
+
+    return 'Country not found';
+}
+ 
+
+?>
 <body>
 
 <div class="page-wrapper">
@@ -201,7 +220,7 @@ function onsubmitform()
                 
                 <h1 style="color:white"><?php echo $response['location_info']['name'];?><span class="icon icon-verified"></span></h1>
 				<div class="text" style="font-size:22px;"><?php echo $response['location_info']['sub_category_name'];?></div>
-				<div class="location clearfix"><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; }  echo $response['location_info']['city'].", "; if($response['location_info']['state_name'] != NULL) echo $response['location_info']['state_name'].", ";?><?php if($response['location_info']['country_name'] != "")echo $response['location_info']['country_name'];?> - <?php echo $response['location_info']['postal_code'];  ?><br>Phone : <?php echo $response['location_info']['phone'];?><br>Website : <a style="color:blue;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank">Click here..</a></div>
+				<div class="location clearfix"><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; }  echo $response['location_info']['city'].", "; if($response['location_info']['state_name'] != NULL) echo $response['location_info']['state_name'].", ";?><?php if($response['location_info']['country_name'] != "")echo $response['location_info']['country_name'];?> - <?php echo $response['location_info']['postal_code'];  ?><br>Phone : <?php echo getCountryCode($response['location_info']['country_name'])."  ".$response['location_info']['phone'];?><br>Website : <a style="color:blue;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank">Click here..</a></div>
                         
             </div>
 

@@ -66,6 +66,25 @@ function onsubmitform()
 
 </script>
 
+<?php
+function getCountryCode($countryName) {
+    $filePath = 'country_codes.json';
+    if (!file_exists($filePath)) return 'Country code file missing';
+
+    $jsonData = json_decode(file_get_contents($filePath), true);
+    if (json_last_error() !== JSON_ERROR_NONE) return 'Invalid JSON';
+
+    $countryName = strtolower(trim($countryName));
+
+    foreach ($jsonData as $name => $code) {
+        if (strtolower($name) === $countryName) return $code;
+    }
+
+    return 'Country not found';
+}
+ 
+
+?>
 
 <!-- Main header start -->
  <?php include("header.php");?>
@@ -98,7 +117,10 @@ function onsubmitform()
                     <div class="clearfix"></div>
                     <div class="mb-30">
                         <div class="location clearfix"><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; } ?><?php echo $response['location_info']['city'];?>, 
-						<?php if($response['location_info']['state_name'] != NULL) echo $response['location_info']['state_name'].", ";?><?php if($response['location_info']['country_name'] != "")echo $response['location_info']['country_name'];?> - <?php echo $response['location_info']['postal_code'];  ?><br>Phone : <?php echo $response['location_info']['phone'];?><br>Website : <a style="color:blue;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank">Click here..</a></div>
+						<?php if($response['location_info']['state_name'] != NULL) echo $response['location_info']['state_name'].", ";?><?php if($response['location_info']['country_name'] != "")echo $response['location_info']['country_name'];?> - <?php echo $response['location_info']['postal_code'];  ?><br>
+						
+						
+						Phone : <?php echo getCountryCode($response['location_info']['country_name'])."  ".$response['location_info']['phone'];?><br>Website : <a style="color:blue;" href="<?php echo $response['location_info']['biz_url'];?>" target="_blank">Click here..</a></div>
                         <div class="clearfix"></div>
                         <!--div class="ratings-2">
                             <span class="ratings-box">4.5/5</span>

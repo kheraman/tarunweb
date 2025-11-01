@@ -188,6 +188,27 @@ function showSlides(n) {
   to {opacity: 1}
 }
 </style>
+
+<?php
+function getCountryCode($countryName) {
+    $filePath = 'country_codes.json';
+    if (!file_exists($filePath)) return 'Country code file missing';
+
+    $jsonData = json_decode(file_get_contents($filePath), true);
+    if (json_last_error() !== JSON_ERROR_NONE) return 'Invalid JSON';
+
+    $countryName = strtolower(trim($countryName));
+
+    foreach ($jsonData as $name => $code) {
+        if (strtolower($name) === $countryName) return $code;
+    }
+
+    return 'Country not found';
+}
+ 
+
+?>
+
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
@@ -329,7 +350,7 @@ echo '<iframe width="100%" height="385" frameborder="0" src="https://maps.google
                                     <ul>
 										<li><?php if($response['location_info']['hide_address'] == "") { ?><i class="flaticon-pin"></i><?php echo $response['location_info']['street'].", "; } ?><?php echo $response['location_info']['city'];?>, <?php if($response['location_info']['state_name'] != NULL) echo $response['location_info']['state_name'].", ";?><?php if($response['location_info']['country_name'] != "")echo $response['location_info']['country_name'];?> - <?php echo $response['location_info']['postal_code'];  ?></li>
 										<!--li><b>Sub-Category : </b><?php //echo $response['location_info']['sub_category_name'];?></li-->
-                                        <li><b>Phone : </b>+1 <?php echo $response['location_info']['phone'];?></li>
+                                        <li><b>Phone : </b><?php echo getCountryCode($response['location_info']['country_name'])."  ".$response['location_info']['phone'];?></li>
 										<?php if($response['location_info']['owner_email'] != "") { ?>
                                         <li><b>Email : </b><?php echo $response['location_info']['owner_email']; ?></li>
 										<?php } ?>
