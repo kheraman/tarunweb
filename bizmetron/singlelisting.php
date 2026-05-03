@@ -990,7 +990,7 @@ function getCountryCode($countryName) {
 <script src="js/wow.js"></script>
 <script src="js/script.js"></script>
 <!--Google Map APi Key-->
-<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKnkff2qVuISk4P07GAfWUc6XYyblRi4Q"></script>
+<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZdrXeXizLica1e357U3Y8Ku5XKP45H5c"></script>
 
 <!--script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2uu6KHbLc_y7fyAVA4dpqSVM4w9ZnnUw"></script-->
 <script src="js/map-script.js"></script>

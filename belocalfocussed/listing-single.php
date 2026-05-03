@@ -854,7 +854,7 @@ function getCountryCode($countryName) {
     ga('send', 'pageview');
 </script>
 
-<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKnkff2qVuISk4P07GAfWUc6XYyblRi4Q"></script>
+<script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZdrXeXizLica1e357U3Y8Ku5XKP45H5c"></script>
 <script>
     function LoadMap(propertes) {
 		
